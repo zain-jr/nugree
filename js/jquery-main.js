@@ -1,6 +1,5 @@
 jQuery(window).load(function(){
 	$('.page-loader').fadeOut();
-	$('#wrapper').removeClass('hidden');
 });
 
 $(document).ready(function() {

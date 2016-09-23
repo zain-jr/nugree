@@ -6,15 +6,15 @@ $gray: #999;
 $black: #000;
 $white: #fff;
 $light-blue: #39f;
-$p42-color:#2092d0;
-$p42-background:#dee1e3;
+$p42-color:#cc3b5b;
+$p42-background:#ebebeb;
 $p42-default-grey:#6c6d70;
 $dark-grey:#555;
 $darken-grey:#777;
 $orange:#d89429;
 $green:#30ce20;
 $dim-grey:#aaa;
-$red: #ce2020;
+$red:#f20;
 
 $base-font-sans-serif:'Raleway', 'Arial', sans-serif;
 $base-font-serif: 'Times New Roman', 'Times', 'Baskerville', 'Georgia', serif;
@@ -22,7 +22,7 @@ $open-sans: 'Open Sans', 'Arial',  sans-serif;
 
 // Body
 $base-text-color: $black !default;
-$base-background-color: $p42-background !default;
+$base-background-color: $white !default;
 $font-size-base: 16px !default;
 $line-height-base: 1.2 !default;
 $base-font-family: $base-font-sans-serif !default;
