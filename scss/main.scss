@@ -120,7 +120,7 @@ html {
     &:checked ~ {
       .fake-checkbox,
       .fake-radio {
-        &:after{ bottom: 0;}
+        background: $p42-color;
       }
     }
   }
@@ -139,18 +139,6 @@ html {
     z-index: 0;
 
     &:after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 100%;
-      background: $p42-color;
-      pointer-events: none;
-      content: '';
-      transition: bottom 0.5s ease;
-      -webkit-transition: bottom 0.5s ease;
-      -moz-transition: bottom 0.5s ease;
-      -ms-transition: bottom 0.5s ease;
     }
   }
   .fake-label {
@@ -289,6 +277,7 @@ html, body {
         font-size: 20px;
         line-height: 1;
       }
+      &:hover { background: $sharp-green;}
     }
   }
   .customLinks {
@@ -377,96 +366,6 @@ html, body {
     }
   }
 }
-.loginRegister {
-  @extend %listreset;
-  @include align-reset(top,14,17);
-  font-weight: 700;
-  display: block;
-  width: 100%;
-  margin: 0 -3px;
-
-  @include media('<tvscreen'){
-    @include align-reset(top,12,15);
-    font-weight: 600;
-  }
-
-  li {
-    width: 50%;
-    padding: 0 3px;
-    margin: 0 0 5px;
-    @extend %text-center;
-    position: relative;
-
-    &:hover {
-      .dropDown { display: block;}
-    }
-
-    &:first-child {
-      a{
-        background: $p42-default-grey;
-        padding: 10px;
-
-        @include media('<tablet'){ padding: 5px;}
-
-        .hidden{
-          @include media('<tablet'){
-            display: inline-block !important;
-            vertical-align: top;
-          }
-        }
-      }
-    }
-
-    a {
-      display: block;
-      text-decoration: none;
-      padding: 10px 25px 10px 5px;
-      color: $white;
-      background: $p42-color;
-      border-radius: 3px;
-      position: relative;
-      cursor: pointer;
-      transition: background 0.5s ease;
-      -webkit-transition: background 0.5s ease;
-      -moz-transition: background 0.5s ease;
-      -ms-transition: background 0.5s ease;
-
-      @include media('<tvscreen'){
-        padding: 10px 20px 10px 5px;
-      }
-      @include media('<desktop'){
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      @include media('<tablet'){
-        padding:5px;
-      }
-
-      span[class^="icon-"],span[class*="icon-"]{
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        font-size: 14px;
-        line-height: 1;
-        margin: -7px 0 0;
-
-        @include media('<desktop'){
-          right: 5px;
-        }
-
-        @include media('<tablet'){
-          position: static;
-          @include font(25,30);
-          margin: 0;
-        }
-      }
-      &:hover {
-        background: $orange;
-      }
-    }
-  }
-}
 .dropDown {
   @extend %listreset;
   @include font(12,15);
@@ -530,7 +429,7 @@ html, body {
 }
 .page-holder {
   @extend %layout;
-  padding: 5px;
+  padding: 74px 0 0;
 }
 .index-page {
   .Ads {
@@ -545,13 +444,22 @@ html, body {
   }
 }
 .mainSearch-form {
-  max-width: 600px;
+  width: 550px;
   float: left;
   @extend %clearfix;
+  background: rgba($black, 0.6);
+  padding: 50px;
 
   @include media('<tablet'){
     margin: 0 auto 15px;
   }
+
+  .select2 {
+    width: 100% !important;
+    margin: 0 0 20px;
+  }
+  .select2-container--default .select2-selection--single .select2-selection__rendered { line-height: 50px;}
+  .select2-container--default .select2-selection--single { height: 50px; }
 
   .typeOfBuying {
     @extend %listreset;
@@ -561,50 +469,22 @@ html, body {
     li {
       font-weight: 700;
       width: 50%;
+      margin: 0 0 10px;
 
       label, span {
         display: block;
         cursor: pointer;
+        padding: 0;
+        @extend %text-center;
+        color: $white;
+        @include font(25,28);
       }
-      
-      input[type="radio"]{
-        position: fixed;
-        top: -999px;
-        left: -999px;
-        opacity: 0;
-        visibility: hidden;
-
-        &:checked ~{
-          .fake-label{
-            color: $white;
-            &:after{
-              top: 0;
-            }
-          }    
-        }
+      input:checked {
+        ~ span { background: $p42-color;}
       }
-      .fake-label{
+      span {
         border: 2px solid $p42-color;
-        color: $p42-color;
-        padding: 5px;
-        position: relative;
-        z-index: 1;
-        background: rgba($p42-background, 0.8);
-
-        &:after {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: $p42-color;
-          content: '';
-          z-index: -1;
-          transition: top 0.5s ease;
-          -webkit-transition: top 0.5s ease;
-          -moz-transition: top 0.5s ease;
-          -ms-transition: top 0.5s ease;
-        }
+        padding: 10px;
       }
     }
   }
@@ -618,7 +498,7 @@ html, body {
     }
 
     li {
-      width: 25%;
+      width: 50%;
       font-weight: bold;
       color: $dark-grey;
       margin: 0 0 20px;
@@ -627,6 +507,8 @@ html, body {
         width: 50%;
         margin: 0 0 10px;
       }
+
+      span, label { color: $white;}
     }
   }
   button[type="submit"]{
@@ -2539,28 +2421,6 @@ html, body {
   transition: none;
   -webkit-transition: none;
   -moz-transition: none;
-}
-.add-holder-page {
-  @extend %layout;
-  
-  .container-holder {
-    width: 70%;
-    float: left;
-    
-    .no-ads & {
-      width: 100%;
-      float: none;
-      overflow: hidden;
-      display: block;
-    }
-
-    @include media('<tablet'){
-      float: none;
-      max-width: inherit;
-      overflow: hidden;
-      width: 100%;
-    }
-  }
 }
 .termsOfUse {
   @include align(top);

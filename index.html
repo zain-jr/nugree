@@ -25,23 +25,75 @@
 				</ul>
 			</div>
 		</header>
-		<div class="news-slideshow">
-			<div class="mask">
-				<div class="slideset">
-					<div class="slide"><img src="images/gawadar.jpg" alt="gawadar city"></div>
-					<div class="slide"><img src="images/gawadar.jpg" alt="gawadar city"></div>
-					<div class="slide"><img src="images/gawadar.jpg" alt="gawadar city"></div>
-					<div class="slide"><img src="images/gawadar.jpg" alt="gawadar city"></div>
-				</div>
-				<div class="container">
-					<form class="mainSearch-form">
-						<select class="js-example-basic-single">
-							<option>Select City</option>
-						</select>
-					</form>
+		<main id="main" role="main">
+			<div class="page-holder">
+				<div class="news-slideshow">
+					<div class="mask">
+						<div class="slideset">
+							<div class="slide"><img src="images/gawadar.jpg" alt="gawadar city"></div>
+							<div class="slide"><img src="images/gawadar.jpg" alt="gawadar city"></div>
+							<div class="slide"><img src="images/gawadar.jpg" alt="gawadar city"></div>
+							<div class="slide"><img src="images/gawadar.jpg" alt="gawadar city"></div>
+						</div>
+						<div class="container">
+							<form class="mainSearch-form">
+								<select class="js-example-basic-single">
+									<option>Select City</option>
+								</select>
+								<ul class="typeOfBuying">
+									<li>
+										<label for="buy" class="customRadio">
+											<input type="radio" name="typeOfBuying" id="buy" checked>
+											<span class="fake-label">Buy</span>
+										</label>
+									</li>
+									<li>
+										<label for="rent" class="customRadio">
+											<input type="radio" name="typeOfBuying" id="rent">
+											<span class="fake-label">Rent</span>
+										</label>
+									</li>
+								</ul>
+								<ul class="subTypes">
+									<li>
+										<label for="all" class="customRadio">
+											<input type="radio" name="typeOfBuying" id="all" checked>
+											<span class="fake-radio"></span>
+											<span class="fake-label">All Types</span>
+										</label>
+									</li>
+									<li>
+										<label for="homes" class="customRadio">
+											<input type="radio" name="typeOfBuying" id="homes" checked>
+											<span class="fake-radio"></span>
+											<span class="fake-label">Homes</span>
+										</label>
+									</li>
+									<li>
+										<label for="plots" class="customRadio">
+											<input type="radio" name="typeOfBuying" id="plots" checked>
+											<span class="fake-radio"></span>
+											<span class="fake-label">Plots</span>
+										</label>
+									</li>
+									<li>
+										<label for="Commercial" class="customRadio">
+											<input type="radio" name="typeOfBuying" id="Commercial" checked>
+											<span class="fake-radio"></span>
+											<span class="fake-label">Commercial</span>
+										</label>
+									</li>
+								</ul>
+								<select class="js-example-basic-single">
+									<option>Select society</option>
+								</select>
+								<button type="submit">Submit</button>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
+		</main>
 	</div>
 	<nav id="nav">
 		<a class="navigation-toggler close"><span class="icon-cross"></span></a>

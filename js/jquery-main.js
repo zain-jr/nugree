@@ -17,10 +17,6 @@ $(document).ready(function() {
 	$('.addPro-type:first').trigger('change');
 	$('.registration-form').find('.role-listing').hide();
 	
-	if($('.Ads li').length == 0){
-		$('.page-holder').addClass('no-ads');
-	}
-	
 	if($('.index-page').length){
        if (screen.width < 1024){ $('#wrapper').addClass('fancy-overlay'); } 
 	}
