@@ -269,15 +269,57 @@ html, body {
   z-index: 99;
   width: 100%;
   background: $p42-background;
+  padding: 0 0 0 110px;
 
-  .searchByID {
-    float: left;
-    margin: 0 0 0 6px;
+  .right-area {
+    @extend %pull-right;
+    @include align-reset(top,14,18);
 
-    @include media('<tablet'){ display: none;}
+    a {
+      text-decoration: none;
+      padding: 26px 25px 25px;
+      @include align(top);
+      cursor: pointer;
+    }
+    .searchOpener {
+      background: $mix-black;
+      color: $white;
+
+      span {
+        font-size: 20px;
+        line-height: 1;
+      }
+    }
+  }
+  .customLinks {
+    @extend %listreset;
+    @include align-reset(top,14,18);
+    @extend %text-upparcase;
+
+    li {
+      &:first-child {
+        a{
+          background: $dark-grey;
+          &:hover {
+            background: darken($dark-grey, 5%);
+          }
+        }
+      }
+      a {
+        color: $white;
+        background: $p42-color;
+        display: block;
+        padding: 28px 20px;
+
+        &:hover {
+          background: darken($p42-color, 5%);
+        }
+      }
+    }
   }
 }
 .logo {
+  margin: 10px 0 0;
   width: 100%;
   max-width: 170px;
   position: relative;
@@ -667,12 +709,6 @@ html, body {
       line-height: 1;
     }
   }
-  .searchByID {
-
-    @include media('<tablet'){
-      display: block !important;
-    }
-  }
   .mobile-content {
     color: $white;
     padding: 10px 0;
@@ -845,7 +881,6 @@ html, body {
     right: 0;
     @extend %listreset;
     @include align-reset(top,22,24);
-    font-family: $open-sans;
 
     @include media('<widescreen'){
       @include align-reset(top,20,23);
@@ -866,101 +901,6 @@ html, body {
     a {
       text-decoration: none;
       color: $white;
-    }
-  }
-}
-.searchByID {
-  @include squar(200px, 37px);
-  @extend %layout;
-  position: relative;
-
-  @include media('<widescreen'){
-    @include squar(140px, 45px);
-  }
-
-  @include media('<desktop'){
-    @include squar(150px, 37px);
-  }
-
-  @include media('<tablet'){
-    top: 10px;
-    left: 50%;
-    margin: 0 0 0 -75px;
-  }
-
-  input[type="text"],input[type="search"]{
-    @include squar(100%, 37px);
-    display: block;
-    color: $p42-default-grey;
-    background: transparent;
-    padding: 8px 35px 8px 8px;
-    border-radius: 2px;
-    @include font(14,17);
-    font-weight: 700;
-    border: 1px solid $p42-default-grey;
-    
-    @include media('<widescreen'){
-      @include squar(100%, 37px);
-      padding: 8px 35px 8px 8px;
-    }
-
-    @include media('<tablet'){
-      color: $white;
-      border: 1px solid $white;
-    }
-
-    &:focus {
-      border-color: $p42-color;
-      color: $p42-color;
-
-      @include media('<tablet'){
-        border-color: $white;
-        color: $white;
-      }
-      
-      ~ button {
-          color: $p42-color;
-          @include media('<tablet'){ color: $white;}
-      }
-      @include placeholder{
-        color: $p42-color;
-        @include media('<tablet'){ color: $white;}
-      }
-    }
-
-    @include placeholder{
-      color: $p42-default-grey;
-
-      @include media('<tablet'){
-        color: $white;
-      }
-    }
-  }
-
-  button{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 10px;
-    border: 0;
-    background: transparent;
-    color: $p42-default-grey;
-    padding: 0;
-    
-    @include media('<tablet'){
-      color: $white;
-    }
-
-    span[class^="icon-"],span[class*="icon-"]{
-      font-size: 20px;
-      line-height: 37px;
-
-      @include media('<widescreen'){
-        line-height: 15px;
-      }
-      @include media('<desktop'){
-        line-height: 37px;
-      }
     }
   }
 }
@@ -1426,7 +1366,6 @@ html, body {
       @include font(26,29);
       color: $p42-color;
       @extend %text-capital;
-      font-family: $open-sans;
       padding: 0 0 0 80px;
       margin: 0 0 30px;
 
@@ -1679,7 +1618,6 @@ html, body {
     border: 1px solid #838383;
     color: #838383;
     @include font(18,21);
-    font-family: $open-sans;
     transition: border-color 0.5s ease;
     -webkit-transition: border-color 0.5s ease;
     -moz-transition: border-color 0.5s ease;
@@ -1770,7 +1708,6 @@ html, body {
 .price {
   display: block;
   color: $p42-default-grey;
-  font-family: $open-sans;
   @include font(18,22);
   font-weight: 800;
   padding: 0 0 10px;
@@ -1788,14 +1725,16 @@ html, body {
   }
 }
 .nav-opener {
-  color: $white;
-  background: $p42-color;
+  width: 80px;
+  color: $sharp-green;
+  background: $mix-black;
   @include align(top);
   position: relative;
-  border-radius: 4px;
   cursor: pointer;
-  padding: 8px 58px 8px 9px;
-  float: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
 
   @include media('<tablet'){
     padding: 0;
@@ -1803,16 +1742,19 @@ html, body {
     margin: 1px 0 0;
   }
 
-  &:hover { background: $orange;}
+  &:hover {
+    background: $orange;
+    color: $white;
+  }
 
   span,
   &:after, &:before {
     position: absolute;
     top: 20%;
-    right: 10%;
+    right: 35%;
+    left: 35%;
     height: 2px;
     background: $white;
-    width: 35px;
     content: '';
     transition: right 0.5s ease;
     -webkit-transition: right 0.5s ease;
@@ -1826,13 +1768,12 @@ html, body {
   }
   &:before{
     top: auto;
-    bottom: 25%;
+    bottom: 42%;
   }
   span {
-    top: 50%;
-    margin: -2px 0 0;
-    right: 15%;
-    width: 29px;
+    top: 45%;
+    margin: -4px 0 0;
+    right: 40%;
     
     @include media('<tablet'){
       width: auto;
@@ -1842,7 +1783,12 @@ html, body {
   strong {
     font-weight: 600;
     @extend %text-capital;
-    @include font(16,20);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @extend %text-center;
+    @include font(14,18);
   }
 }
 .calculatedPrice {
@@ -1863,7 +1809,6 @@ html, body {
 	text-align: center;
 	@include align-reset(top,15,18);
 	padding: 30px 0 0;
-  font-family: $open-sans;
 	
 	@include media('<tablet'){
 		padding: 30px 0;
@@ -2139,7 +2084,6 @@ html, body {
   @include font(13,16);
   @extend %text-capital;
   position: relative;
-  font-family: $open-sans;
   color: $p42-default-grey;
   padding: 0 0 0 30px;
 
@@ -2221,7 +2165,6 @@ html, body {
   li {
     display: block;
     @include align-reset(top, 17, 20);
-    font-family: $open-sans;
     padding: 5px;
 
     span {
@@ -2247,7 +2190,6 @@ html, body {
 .small-heading {
   display: block;
   color: $p42-default-grey;
-  font-family: $open-sans;
   font-weight: 700;
   @include font(21,24);
   padding: 0 0 10px;
@@ -2430,7 +2372,6 @@ html, body {
 .radio-checks-holder {
   @extend %listreset;
   @include align-reset(top, 16,20);
-  font: $open-sans;
   font-weight: 700;
   margin: 10px 0 0;
   @extend %layout;
@@ -2519,7 +2460,6 @@ html, body {
     @extend %text-capital;
     color: $dark-grey;
     @include font(20,24);
-    font-family: $open-sans;
     font-weight: 600;
     overflow: hidden;
     
@@ -2593,7 +2533,6 @@ html, body {
   @include font (13,16);
   display: block;
   font-weight: bold;
-  font-family: $open-sans;
   padding: 0 0 5px; 
 }
 .resize-active * {
