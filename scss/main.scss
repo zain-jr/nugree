@@ -222,10 +222,15 @@ html {
     line-height: 16px;
   }
 }
-html, body {
-  width: 100%;
-  height: 100%;
-  display: table;
+h1 {
+  @include font(42px,45px);
+  @extend %text-capital;
+  display: block;
+
+  span {
+    @include align(top);
+    font-weight: 400;
+  }
 }
 #wrapper {
   width: 100%;
@@ -444,11 +449,14 @@ html, body {
   }
 }
 .mainSearch-form {
-  width: 550px;
-  float: left;
+  width: 480px;
   @extend %clearfix;
   background: rgba($black, 0.6);
   padding: 50px;
+  position: absolute;
+  top: 0;
+  left: 147px;
+  z-index: 80;
 
   @include media('<tablet'){
     margin: 0 auto 15px;
@@ -456,11 +464,28 @@ html, body {
 
   .select2 {
     width: 100% !important;
-    margin: 0 0 20px;
+    margin: 0 0 30px;
   }
   .select2-container--default .select2-selection--single .select2-selection__rendered { line-height: 50px;}
   .select2-container--default .select2-selection--single { height: 50px; }
+  .select2-container--default .select2-selection--single .select2-selection__arrow {
+    width: 50px;
+    background: $mix-black;
+  }
+  .select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border:0;
+    height: auto;
+    width: auto;
+    margin: -15px 0 0 -15px;
 
+    &:after {
+      content: "\e948";
+      font-family: 'icomoon';
+      font-size: 30px;
+      line-height: 1;
+      color: $white;
+    }
+  }
   .typeOfBuying {
     @extend %listreset;
     color: $p42-color;
@@ -469,7 +494,7 @@ html, body {
     li {
       font-weight: 700;
       width: 50%;
-      margin: 0 0 10px;
+      margin: 0 0 20px;
 
       label, span {
         display: block;
@@ -484,7 +509,7 @@ html, body {
       }
       span {
         border: 2px solid $p42-color;
-        padding: 10px;
+        padding: 20px 10px;
       }
     }
   }
@@ -501,7 +526,7 @@ html, body {
       width: 50%;
       font-weight: bold;
       color: $dark-grey;
-      margin: 0 0 20px;
+      margin: 0 0 30px;
 
       @include media('<tablet'){
         width: 50%;
@@ -512,12 +537,13 @@ html, body {
     }
   }
   button[type="submit"]{
+    position: relative;
     border: 0;
-    background: $p42-color;
+    background: $sharp-green;
     color: $white;
     display: block;
     width: 100%;
-    padding: 10px;
+    padding: 20px 10px;
     @include font(18, 22);
     @extend %text-upparcase;
     font-weight: bold;
@@ -535,12 +561,24 @@ html, body {
     }
 
     &:hover {
-      background: $green;
+      background: $mix-black;
+      span[class^="icon-"], span[class*="icon-"]{
+        opacity: 1;
+        color: $sharp-green;
+      }
     }
 
     span[class^="icon-"], span[class*="icon-"]{
-      margin: 0 11px;
-      @include align(middle);
+      position: absolute;
+      top: 50%;
+      right: 0;
+      font-size: 20px;
+      line-height: 1;
+      margin: -10px 20px 0;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      -webkit-transition: opacity 0.5s ease;
+      -moz-transition: opacity 0.5s ease;
     }
   }
 }
@@ -794,102 +832,6 @@ html, body {
     padding: 20px 0 0;
   }
 }
-.cities {
-  @extend %layout;
-  margin: 0 -10px;
-
-  .common,
-  .majorDiv {
-    width: 50%;
-    padding: 0 10px;
-
-    @include media('<desktop'){
-      width: 100% !important;
-      float: none !important;
-      display: block;
-    }
-  }
-
-  .majorDiv {
-    background: $white;
-    
-    @include media('<tvscreen'){
-      width: 45%;
-    }
-
-    a {
-      min-height: 610px;
-      white-space: nowrap;
-      display: block;
-      background: $white;
-      @extend %text-center;
-
-      @include media('<desktop'){
-        min-height: 300px;
-        margin: 0 0 10px;
-      }
-
-      &:after {
-        height: 610px;
-        @include align(middle);
-        margin: 0 0 0 -5px;
-        content: '';
-        overflow: hidden;
-        width: 1px;
-
-        @include media('<desktop'){ height: 300px;}
-      }
-    }
-    img {
-      @include align(middle);
-      white-space: normal;
-    }
-  }
-  .common {
-    @extend %listreset;
-    @include align-reset(top, 12 , 12);
-    margin: 0 -5px;
-    padding: 0;
-
-    @include media('<tvscreen'){
-      width: 55%;
-    }
-    
-    li {
-      width: 50%;
-      padding: 0 5px 10px;
-
-      a{
-        display: block;
-        background: $white;
-        white-space: nowrap;
-        min-height: 300px;
-        @extend %text-center;
-
-        &:after {
-          height: 300px;
-          @include align(middle);
-          margin: 0 0 0 -5px;
-          overflow: hidden;
-          width: 1px;
-          content: '';
-        }
-        img {
-          @include align(middle);
-          white-space: normal;
-          max-width: 200px;
-
-          @include media('<tvscreen'){
-            max-width: 170px;
-          }
-          @include media('<widescreen'){
-            max-width: 150px;
-          }
-        }
-      }
-    }
-  }
-}
 .projects-sliderHolder,
 .news-sliderHolder  {
   @extend %layout;
@@ -909,6 +851,7 @@ html, body {
   .slideset{
     @extend %layout;
     width: 100%;
+    height: 519px !important;
   }
   .slide {
     position: absolute;
@@ -922,24 +865,45 @@ html, body {
     @include media('<tablet'){
       @include font(16,25);
     }
-    img { @extend %img-res;}
+    img {
+      @extend %img-res;
+    }
+    .container {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 60;
+    }
     .caption {
+      @extend %pull-right;
       width: 50%;
-      @extend %pull-left;
-      padding: 0 20px 0 0;
+      color: $white;
+      padding: 20px 0 0;
 
-      @include media('<desktop'){
-        width: 100%;
-        float: none !important;
-        padding: 0;
-        text-align: center;
-
-        p { text-align: left;}
+      h1 {
+        @include font(75,78);
+        span {
+          color: $p42-color;
+          position: relative;
+          display: block;
+          font-weight: bold;
+        }
       }
     }
 
     &.active {
       z-index: 5 !important;
+
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba($black, 0.5);
+        content: '';
+      }
     }
   }
 }
