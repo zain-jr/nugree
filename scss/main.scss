@@ -454,9 +454,10 @@ h1 {
   background: rgba($black, 0.6);
   padding: 50px;
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 147px;
   z-index: 80;
+  margin: -260px 0 0;
 
   @include media('<tablet'){
     margin: 0 auto 15px;
@@ -538,7 +539,7 @@ h1 {
   }
   button[type="submit"]{
     position: relative;
-    border: 0;
+    border: 1px solid transparent;
     background: $sharp-green;
     color: $white;
     display: block;
@@ -562,6 +563,7 @@ h1 {
 
     &:hover {
       background: $mix-black;
+      border-color: $sharp-green;
       span[class^="icon-"], span[class*="icon-"]{
         opacity: 1;
         color: $sharp-green;
@@ -851,7 +853,57 @@ h1 {
   .slideset{
     @extend %layout;
     width: 100%;
-    height: 519px !important;
+    height: 652px !important;
+  }
+  .btn-holder {
+    position: absolute;
+    top: 50%;
+    right: 200px;
+    z-index: 6;
+    width: 150px;
+    @extend %layout;
+    @extend %text-center;
+
+    .btn-prev, .btn-next {
+      float: left;
+      width: 48%;
+      text-decoration: none;
+      background: $white;
+      opacity: 0.7;
+      color: $black;
+      margin: 0 1px;
+      padding: 15px; 
+
+      &.disabled {
+        cursor: default;
+      }
+
+      &:hover {
+        opacity: 1;
+        color: $p42-color;
+      }
+    }
+  }
+  .total-slides {
+    @extend %listreset;
+    @include align-reset(top,20,22);
+    color: $white;
+    text-decoration: none;
+    margin: 0 0 20px;
+
+    li {
+      width: 50%;
+      @extend %text-right;
+
+      .all-num,
+      .cur-num {
+        display: block;
+        padding: 2px 10px;
+        background: $p42-color;
+        margin: 0 1px;
+      }
+      .all-num { opacity: 0.7;}
+    }
   }
   .slide {
     position: absolute;
@@ -861,6 +913,17 @@ h1 {
     color: $darken-grey;
     @include font(19, 37);
     z-index: -1 !important;
+
+    &:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba($black, 0.5);
+      content: '';
+      z-index: 5 !important;
+    }
 
     @include media('<tablet'){
       @include font(16,25);
@@ -876,34 +939,41 @@ h1 {
       z-index: 60;
     }
     .caption {
-      @extend %pull-right;
       width: 50%;
       color: $white;
-      padding: 20px 0 0;
+      padding: 50px 190px 0 0;
+      margin: 0 auto;
+      position: relative;
+      left: 200px;
+      @include font(20,24);
 
       h1 {
-        @include font(75,78);
+        margin: 0 0 15px;
+        @include font(75,77);
         span {
           color: $p42-color;
           position: relative;
           display: block;
           font-weight: bold;
+          padding: 0 0 20px;
+          max-width: 320px;
+
+          &:after {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 55%;
+            height: 4px;
+            background: $p42-color;
+            content: '';
+          }
         }
       }
+      p { margin: 0 0 10px;}
     }
 
     &.active {
       z-index: 5 !important;
-
-      &:after {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba($black, 0.5);
-        content: '';
-      }
     }
   }
 }
@@ -1251,17 +1321,6 @@ h1 {
 .agent-slider {
   position: relative;
   @extend %layout;
-  padding: 0 10px;
-  @extend %container;
-  max-width: 1024px;
-  
-  .no-ads & {
-    max-width: inherit;
-
-    .mask {
-      max-width: inherit;
-    }
-  }
 
   @include media('<tvscreen'){
     width: 70%;
@@ -1276,26 +1335,25 @@ h1 {
     @extend %layout;
     position: relative;
     width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-
-    @include media('<tvscreen'){
-      max-width: 550px;
-    }
-    @include media('<widescreen'){
-      max-width: 500px;
-    }
-    @include media('<desktop'){
-      max-width: 600px;
-    }
   }
   .slideset{
     float: left;
-    width: 99999px;
+    width: 100% !important;
     position: relative;
+    letter-spacing: -4px;
+    font-size: 0;
+    line-height: 0;
+    white-space: nowrap;
   }
   .slide{
-	  float: left;
+	  float: none !important;
+    display: inline-block !important;
+    vertical-align: top !important;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0;
+    width: 12.5% !important;
+    @extend %text-center;
   }
   .btn-prev, .btn-next {
     text-decoration: none;

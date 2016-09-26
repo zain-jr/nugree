@@ -163,7 +163,8 @@ function initCarousel() {
 		stretchSlideToMask: true,
 		generatePagination: '.pagination',
 		switchTime: 2000,
-		animSpeed: 600
+		animSpeed: 600,
+		step: 1
 	});
 
 	jQuery('.propertyImage-slider').scrollGallery({
