@@ -73,7 +73,7 @@ function initSlideShow() {
 		disableWhileAnimating: false,
 		generatePagination: '.pagination',
 		autoRotation: true,
-		autoHeight: true,
+		autoHeight: false,
 		pauseOnHover: true,
 		circularRotation: false,
 		switchTime: 5000,
@@ -112,43 +112,6 @@ function initSlideShow() {
 }
 // scroll gallery init
 function initCarousel() {
-	jQuery('.news-carousel').scrollGallery({
-		mask: '.news-mask',
-		slider: '.news-slideset',
-		slides: '.news-slide',
-		currentNumber: 'span.cur-num',
-		totalNumber: 'span.all-num',
-		disableWhileAnimating: true,
-		generatePagination: '.news-pagination',
-		circularRotation: true,
-		pauseOnHover: true,
-		autoRotation: true,
-		maskAutoSize: true,
-		stretchSlideToMask: true,
-		btnPrev: '.news-btn-prev',
-		btnNext: '.news-btn-next',
-		switchTime: 4000,
-		animSpeed: 600
-	});
-	jQuery('.projects-carousel').scrollGallery({
-		mask: '.projects-mask',
-		slider: '.projects-slideset',
-		slides: '.projects-slide',
-		currentNumber: 'span.cur-num',
-		totalNumber: 'span.all-num',
-		disableWhileAnimating: true,
-		generatePagination: '.projects-pagination',
-		circularRotation: true,
-		pauseOnHover: true,
-		autoRotation: true,
-		maskAutoSize: true,
-		stretchSlideToMask: true,
-		btnPrev: '.projects-btn-prev',
-		btnNext: '.projects-btn-next',
-		switchTime: 4000,
-		animSpeed: 600
-	});
-
 	jQuery('.agent-slider').scrollGallery({
 		mask: '.mask',
 		slider: '.slideset',
@@ -158,13 +121,29 @@ function initCarousel() {
 		disableWhileAnimating: true,
 		circularRotation: true,
 		pauseOnHover: true,
-		autoRotation: false,
+		autoRotation: true,
 		maskAutoSize: false,
 		stretchSlideToMask: true,
 		generatePagination: '.pagination',
 		switchTime: 2000,
 		animSpeed: 600,
 		step: 1
+	});
+	jQuery('.latest-news').scrollGallery({
+		mask: '.mask',
+		slider: '.slideset',
+		slides: '.slide',
+		currentNumber: 'span.cur-num',
+		totalNumber: 'span.all-num',
+		disableWhileAnimating: true,
+		circularRotation: true,
+		pauseOnHover: true,
+		autoRotation: true,
+		maskAutoSize: false,
+		stretchSlideToMask: true,
+		generatePagination: '.pagination',
+		switchTime: 2000,
+		animSpeed: 600
 	});
 
 	jQuery('.propertyImage-slider').scrollGallery({

@@ -224,12 +224,13 @@ html {
 }
 h1 {
   @include font(42px,45px);
+  font-weight: 400;
   @extend %text-capital;
   display: block;
 
   span {
     @include align(top);
-    font-weight: 400;
+    font-weight: bold;
   }
 }
 #wrapper {
@@ -437,16 +438,7 @@ h1 {
   padding: 74px 0 0;
 }
 .index-page {
-  .Ads {
-    margin: 60px 0 0;
-  }
-  .ads-slideshow {
-
-    img {
-      max-width: 800px;
-      max-height: 200px;
-    }
-  }
+  @extend %layout;
 }
 .mainSearch-form {
   width: 480px;
@@ -950,6 +942,7 @@ h1 {
       h1 {
         margin: 0 0 15px;
         @include font(75,77);
+        font-weight: bold;
         span {
           color: $p42-color;
           position: relative;
@@ -1105,101 +1098,6 @@ h1 {
     }
   }
 }
-.projects-carousel,
-.news-carousel {
-  position: relative;
-  @extend %layout;
-  @extend %pull-right;
-  width: 50%;
-
-  @include media('<desktop'){
-    width: 100%;
-    float: none !important;
-    max-width: 480px;
-    margin: 0 auto;
-  }
-
-  .projects-mask,
-  .news-mask {
-    @extend %layout;
-    position: relative;
-    width: 100%;
-    max-width: 460px;
-    margin: 0 auto;
-
-    @include media('<widescreen'){
-      max-width: 360px;
-    }
-  }
-  .projects-slideset,
-  .news-slideset{
-    float: left;
-    width: 99999px;
-  }
-  .projects-slide,
-  .news-slide{
-	  float: left;
-    width: 100%;
-    
-    img {
-      @extend %img-res;
-      max-width: 460px;
-      max-height: 340px;
-      min-width: 460px;
-      min-height: 340px;
-
-      @include media('<widescreen'){
-        max-width: 400px;
-        max-height: 300px;
-        min-width: 400px;
-        min-height: 300px;
-      }
-    }
-  }
-  .projects-btn-prev, .projects-btn-next,
-  .news-btn-prev, .news-btn-next {
-    text-decoration: none;
-    color: $dim-grey;
-    position: absolute;
-    bottom: 50px;
-    left: 0;
-
-    @include media('<widescreen'){
-      left: 30px;
-    }
-    @include media('<desktop'){
-      left: 60px;
-    }
-
-    @include media('<tablet'){ display: none;}
-
-    &:hover{
-      color: $p42-color;
-    }
-
-    span[class^="icon-"],span[class*="icon-"]{
-      &:before{
-        font-size: 42px;
-        line-height: 1;
-      }
-    }
-  }
-  .projects-btn-next,
-  .news-btn-next {
-    left: auto;
-    right: 0;
-    
-    @include media('<widescreen'){
-      right: 30px;
-    }
-    @include media('<desktop'){
-      right: 60px;
-    }
-  }
-}
-.projects-carousel{
-  float: left !important;
-}
 .heading {
     display: block;
     @extend %text-center;
@@ -1320,21 +1218,24 @@ h1 {
 }
 .agent-slider {
   position: relative;
-  @extend %layout;
-
-  @include media('<tvscreen'){
-    width: 70%;
-  }
 
   @include media('<desktop'){
     width: 100%;
-    float: none !important;
   }
 
   .mask {
     @extend %layout;
     position: relative;
     width: 100%;
+
+    &:after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      content: '';
+      box-shadow: 0 0 85px 85px rgba($white, 0.8);
+    }
   }
   .slideset{
     float: left;
@@ -1354,35 +1255,143 @@ h1 {
     letter-spacing: 0;
     width: 12.5% !important;
     @extend %text-center;
+
+    a {
+      display: block;
+      min-height: 120px;
+      white-space: nowrap;
+
+      &:after {
+        height: 120px;
+        content: '';
+        overflow: hidden;
+        margin: 0 0 0 -5px;
+        @include align(middle);
+        width: 1px;
+      }
+
+      img {
+        white-space: normal;
+        @include align(middle);
+      }
+    }
+  }
+  h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    @extend %text-center;
+    margin: 0;
+    padding: 33px 20px;
+    z-index: 5;
+    background: $white;
+    @include font(42,45);
+    font-weight: 300;
+    color: $sharp-green;
+    box-shadow: 0 7px 5px 0 rgba($black, 0.18);
+
+    &:after {
+      position: absolute;
+      top: 0;
+      right: -80px;
+      bottom: 0;
+      border: 80px solid transparent;
+      border-top: 120px solid $white;
+      border-left: 0;
+      content: '';
+    }
+    &:before {
+      position: absolute;
+      top: -11px;
+      right: -37px;
+      bottom: -11px;
+      width: 10px;
+      content: '';
+      box-shadow: 8px -2px 8px -3px rgba($black, 0.6);
+      transform: rotate(33deg);
+    }
+  }
+}
+.latest-news {
+  position: relative;
+  @extend %layout;
+  background:$p42-background;
+
+  .mask {
+    position: relative;
+    @extend %layout;
+    @extend  %container;
+  }
+  .slideset {
+    width: 99999px;
+    float: left;
+  }
+  .slide {
+    width: 100%;
+    float: left;
+
+    .container {
+      position: relative;
+      color: $mix-black;
+      font-weight: 300;
+      padding: 35px 285px 35px 15px;
+      @include font(25,28);
+    }
+  }
+  h1 {
+    @extend %text-capital;
+    color: $p42-color;
+    @include font(41,42);
+    font-weight: 300;
+  }
+  p {
+    margin: 0;
+  }
+  .btn-default {
+    position: absolute;
+    bottom: 4px;
+    right: 100px;
+  }
+  .heading-btns {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    background: $white;
+    width: 200px;
+    padding: 50px 0 0;
+    @extend %text-center;
   }
   .btn-prev, .btn-next {
-    text-decoration: none;
-    color: $dim-grey;
     position: absolute;
-    bottom: 40px;
-    left: 0;
+    bottom: 0;
+    left: 40px;
+    text-decoration: none;
+    color: $black;
+    padding: 30px 0 5px;
 
-    @include media('<desktop'){
-      left: 10px;
-    }
-    @include media('<tablet'){
-      display: none;
-    }
+    &:hover { color: $p42-color;}
 
-    &:hover{
-      color: $p42-color;
-    }
-
-    span[class^="icon-"],span[class*="icon-"]{
-      &:before{
-        font-size: 42px;
-        line-height: 1;
-      }
+    span {
+      font-size: 30px;
+      line-height: 1;
     }
   }
   .btn-next {
     left: auto;
-    right: 10px;
+    right: 40px;
+
+    &:after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -30px;
+      width: 2px;
+      background: $black;
+      content: '';
+    }
   }
 }
 .agents-logo {
