@@ -224,13 +224,16 @@ html {
 }
 h1 {
   @include font(42px,45px);
-  font-weight: 400;
+  font-weight: 700;
   @extend %text-capital;
   display: block;
+  @extend %text-center;
+  color: $mix-black;
 
   span {
     @include align(top);
-    font-weight: bold;
+    font-weight: 300;
+    color: $p42-color;
   }
 }
 #wrapper {
@@ -943,6 +946,8 @@ h1 {
         margin: 0 0 15px;
         @include font(75,77);
         font-weight: bold;
+        color: $white;
+        @extend %text-left;
         span {
           color: $p42-color;
           position: relative;
@@ -1289,7 +1294,6 @@ h1 {
     @include font(42,45);
     font-weight: 300;
     color: $sharp-green;
-    box-shadow: 0 7px 5px 0 rgba($black, 0.18);
 
     &:after {
       position: absolute;
@@ -1344,14 +1348,18 @@ h1 {
     color: $p42-color;
     @include font(41,42);
     font-weight: 300;
+    @extend %text-left;
   }
   p {
     margin: 0;
   }
   .btn-default {
     position: absolute;
-    bottom: 4px;
+    bottom: 0;
     right: 100px;
+    background: $black;
+
+    &:hover { background: $sharp-green;}
   }
   .heading-btns {
     position: absolute;
@@ -1363,6 +1371,10 @@ h1 {
     width: 200px;
     padding: 50px 0 0;
     @extend %text-center;
+
+    h1 {
+      @extend %text-center;
+    }
   }
   .btn-prev, .btn-next {
     position: absolute;
@@ -1391,6 +1403,30 @@ h1 {
       width: 2px;
       background: $black;
       content: '';
+    }
+  }
+}
+.cities-section {
+  @extend %layout;
+  @extend %container;
+  padding: 30px 15px;
+
+  .layout {
+    @include align-reset(top,30,33);
+
+    .col {
+      width: 50%;
+    }
+    a { display: block;}
+    img { @extend %img-res;}
+    ul {
+      @extend %listreset;
+      @include align-reset(top,30,33);
+      padding: 0 2px 0 0;
+
+      li {
+         width: 50%;
+      }
     }
   }
 }
