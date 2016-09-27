@@ -1385,6 +1385,7 @@ h1 {
     width: 200px;
     padding: 50px 0 0;
     @extend %text-center;
+    box-shadow: 0 0 15px rgba($black, 0.5);
 
     h1 {
       @extend %text-center;
