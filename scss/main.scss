@@ -77,7 +77,7 @@ html {
   font-weight: 700;
   text-decoration: none;
   color: $white;
-  background: $p42-color;
+  background: $sharp-green;
   padding: 10px 25px;
   border: 0;
   transition: background 0.4s ease;
@@ -267,6 +267,7 @@ h1 {
   width: 100%;
   background: $p42-background;
   padding: 0 0 0 110px;
+  box-shadow: 0 0 15px rgba($black,0.5);
 
   .right-area {
     @extend %pull-right;
@@ -307,7 +308,7 @@ h1 {
         color: $white;
         background: $p42-color;
         display: block;
-        padding: 28px 20px;
+        padding:28px 50px;
 
         &:hover {
           background: darken($p42-color, 5%);
@@ -448,11 +449,6 @@ h1 {
   @extend %clearfix;
   background: rgba($black, 0.6);
   padding: 50px;
-  position: absolute;
-  top: 50%;
-  left: 147px;
-  z-index: 80;
-  margin: -260px 0 0;
 
   @include media('<tablet'){
     margin: 0 auto 15px;
@@ -848,13 +844,21 @@ h1 {
   .slideset{
     @extend %layout;
     width: 100%;
-    height: 652px !important;
+    height:522px !important;
+  }
+  .container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
   }
   .btn-holder {
     position: absolute;
     top: 50%;
     right: 200px;
-    z-index: 6;
+    z-index: 5;
     width: 150px;
     @extend %layout;
     @extend %text-center;
@@ -1274,10 +1278,20 @@ h1 {
         @include align(middle);
         width: 1px;
       }
+      &:hover {
+        img {
+        filter: grayscale(0);
+        -webkit-filter: grayscale(0);
+        -moz-filter: grayscale(0);
+        }
+      }
 
       img {
         white-space: normal;
         @include align(middle);
+        filter: grayscale(1);
+        -webkit-filter: grayscale(1);
+        -moz-filter: grayscale(1);
       }
     }
   }
@@ -1410,14 +1424,52 @@ h1 {
   @extend %layout;
   @extend %container;
   padding: 30px 15px;
+  overflow: visible;
+  @extend %clearfix;
 
   .layout {
     @include align-reset(top,30,33);
+    padding: 0 0 20px;
+    overflow: visible;
+    @extend %clearfix;
 
     .col {
       width: 50%;
     }
-    a { display: block;}
+    a {
+      display: block;
+      position: relative;
+      text-decoration: none;
+    }
+    h1 {
+      background: $mix-black;
+      margin: 0;
+      color: $white;
+      padding:92px 20px 93px;
+      position: relative;
+
+      &:after {
+        position: absolute;
+        top: 0;
+        right: -999999px;
+        left: 100%;
+        bottom: 0;
+        background: $mix-black;
+        content: '';
+      }
+    }
+    .title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      color: $white;
+      @include font(50,54);
+      font-weight: 700;
+      z-index: 5;
+      @extend %text-center;
+      padding: 8px;
+    }
     img { @extend %img-res;}
     ul {
       @extend %listreset;
@@ -1674,7 +1726,7 @@ h1 {
   }
 }
 .nav-opener {
-  width: 80px;
+  width: 92px;
   color: $sharp-green;
   background: $mix-black;
   @include align(top);
