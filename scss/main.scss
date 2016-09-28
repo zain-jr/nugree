@@ -1554,20 +1554,7 @@ h1 {
   }
 }
 .about-us {
-  @include font(18,30);
-  padding: 150px 0;
-
-  @include media('<tablet'){
-    padding: 20px 0;
-    @include font(13,19);
-  }
-}
-.questions {
-  @include font(18,30);
-
-  @include media('<tablet'){
-    @include font(13,19);
-  }
+  
 }
 .submit-query {
   @extend %layout;
