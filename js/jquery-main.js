@@ -88,7 +88,7 @@ function initSlideShow() {
 		disableWhileAnimating: false,
 		generatePagination: '.pagination',
 		autoRotation: true,
-		autoHeight: true,
+		autoHeight: false,
 		pauseOnHover: true,
 		circularRotation: false,
 		switchTime: 5000,

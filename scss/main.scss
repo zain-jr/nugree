@@ -825,17 +825,10 @@ h1 {
     padding: 20px 0 0;
   }
 }
-.projects-sliderHolder,
-.news-sliderHolder  {
-  @extend %layout;
-  padding: 20px 0 0;
-  position: relative;
-  z-index: 9;
-
-  @include media('<tablet'){ padding: 0;}
-}
+.projects-slideshow,
 .news-slideshow {
   @extend %layout;
+  position: relative;
 
   .mask {
     position: relative;
@@ -979,13 +972,92 @@ h1 {
     }
   }
 }
-
 .projects-slideshow {
+  h1 {
+    color: $sharp-green;
+    font-weight: 600;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    right: 0;
+    z-index: 56;
+    margin: 0;
+    @include font(50,55);
+  }
+  .btn-default {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin: 0 0 0 -100px;
+    z-index: 5;
+  }
+  .slideset {
+    height: 600px !important;
+  }
+  .btn-holder {
+    top: auto;
+    bottom: 10px;
+  }
+  .heading {
+    margin: 0;
+  }
   .slide {
-    .caption {
-      float: right !important;
-      padding: 0 0 0 10px;
+    .container {
+      max-width: 1024px;
+      min-height: 600px;
+      white-space: nowrap;
+
+      &:after {
+        height: 600px;
+        @include align(middle);
+        width: 1px;
+        @extend %layout;
+        width: 1px;
+        margin: 0 0 0 -5px;
+        content: '';
+      }
     }
+    img { height: 100%;}
+    .caption {
+      @extend %text-center;
+      @include font(18,28);
+      width: 100%;
+      @include align(middle);
+      white-space: normal;
+      padding: 0;
+      left: auto;
+
+      p {
+        margin: 0;
+        a {
+          @include align(top);
+          margin: 0 5px;
+          color: $white;
+        }
+      }
+    }
+  }
+  .btn-prev , .btn-next {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 5;
+    text-decoration: none;
+    color: $white;
+    margin: -50px 0 0;
+    opacity: 0.7;
+
+    span {
+      &:before {
+        font-size: 100px;
+        line-height: 1;
+      }
+    }
+    &:hover { opacity: 1;}
+  }
+  .btn-next {
+    left: auto;
+    right: 0;
   }
 }
 .ads-slideshow {
@@ -1133,98 +1205,7 @@ h1 {
     margin: 30px 0 10px;
   }
 }
-.mobile-app {
-  background: $white;
-  box-shadow: 0 0 20px rgba($black, 0.20);
-  @extend %layout;
-  padding: 100px 0;
 
-  .container { position: relative;}
-  .appPicture {
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    margin: -207px 0 0;
-
-    @include media('<tvscreen'){
-      max-width: 300px;
-      margin: -126px 0 0;
-    }
-    @include media('<desktop'){
-      position: static;
-      margin: 0;
-      margin: 0 auto;
-      display: block;
-    }
-  }
-  .details-cap {
-    padding: 0 0 0 550px;
-    @extend %text-left;
-
-    @include media('<tvscreen'){
-      padding: 0 0 0 340px;
-    }
-    @include media('<desktop'){
-      padding: 0;
-      text-align: center;
-    }
-
-    h1 {
-      @extend %text-left;
-      margin: 0 0 10px;
-
-      @include media('<desktop'){
-        text-align: center;
-      }
-    }
-    strong {
-      color: $p42-default-grey;
-      display: block;
-      @include font(37,39);
-      margin: 0 0 30px;
-    }
-    .p42 {
-      display: block;
-      position: relative;
-      @include font(26,29);
-      color: $p42-color;
-      @extend %text-capital;
-      padding: 0 0 0 80px;
-      margin: 0 0 30px;
-
-      @include media('<desktop'){
-        max-width: 230px;
-        margin: 30px auto;
-      }
-
-      &:after {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        margin: -37px 0 0;
-        content: '';
-        background: url('../images/ico01.png') no-repeat;
-        background-size: cover; 
-        width: 75px !important;
-        height: 75px !important;
-      }
-    }
-    .links {
-      @extend %listreset;
-      @include align-reset(top, 12, 12);
-      margin: 0 -5px;
-
-      li {
-        padding: 0 5px 10px;
-
-        a {
-          display: block;
-          &:hover { opacity: 0.8;}
-        }
-      }
-    }
-  }
-}
 .agent-slider {
   position: relative;
 
@@ -1471,7 +1452,10 @@ h1 {
       @extend %text-center;
       padding: 8px;
     }
-    img { @extend %img-res;}
+    img {
+      @extend %img-res;
+      max-height: 436px;
+    }
     ul {
       @extend %listreset;
       @include align-reset(top,30,33);
@@ -1479,10 +1463,13 @@ h1 {
 
       li {
          width: 50%;
+
+         img { max-height: 218px;}
       }
     }
   }
 }
+
 .agents-logo {
   @extend %listreset;
   @include align-reset(top, 18,22);
