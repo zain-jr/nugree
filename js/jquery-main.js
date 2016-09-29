@@ -16,10 +16,6 @@ $(document).ready(function() {
 	}
 	$('.addPro-type:first').trigger('change');
 	$('.registration-form').find('.role-listing').hide();
-	
-	if($('.index-page').length){
-       if (screen.width < 1024){ $('#wrapper').addClass('fancy-overlay'); } 
-	}
 	$('.news-slideshow .slide').each(function(){
 		if($(this).find('.news-slide').length == 1){
 			$(this).find('.news-pagination').remove();
@@ -530,4 +526,7 @@ $(document).on('click', '.btn-close-working', function(){
 
 $(document).on('click', '.main-navigation li a', function(){
 	$('html').removeClass('nav-active');
+});
+$(document).on('click', '.searchOpener', function(){
+	$('#wrapper').toggleClass('search-id-active');
 });

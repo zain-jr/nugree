@@ -34,6 +34,10 @@ $media-expressions: (
 @import 'select2-min';
 @import 'fancybox';
 
+html, body {
+  width: 100%;
+  height: 100%;
+}
 html {
 
   &.filters-active,
@@ -236,10 +240,17 @@ h1 {
     color: $p42-color;
   }
 }
+h2 {
+  display: block;
+  @include font(41,44);
+  font-weight: 300;
+  color: $p42-color;
+}
 #wrapper {
   width: 100%;
   height: 100%;
   display: table;
+  table-layout: fixed;
   @extend %layout;
   position: relative;
 
@@ -272,6 +283,7 @@ h1 {
   .right-area {
     @extend %pull-right;
     @include align-reset(top,14,18);
+    position: relative;
 
     a {
       text-decoration: none;
@@ -315,6 +327,46 @@ h1 {
         }
       }
     }
+  }
+}
+.searchById {
+  position: absolute;
+  top: 0;
+  left: -150px;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0;
+  transition: z-index 0.5s ease, opacity 0.5s ease;
+  -webkit-transition: z-index 0.5s ease, opacity 0.5s ease;
+  -moz-transition: z-index 0.5s ease, opacity 0.5s ease;
+
+  .search-id-active & {
+    z-index: 4;
+    opacity: 1;
+  }
+
+  input[type="text"],input[type="number"]{
+    border: 0;
+    @include squar(218px, 100%);
+    padding: 0 70px 0 10px;
+    background: $mix-black;
+    color: $white;
+
+    @include placeholder {
+      color: $white !important;
+      opacity: 1;
+    }
+  }
+  button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border: 0;
+    background: $mix-black;
+    color: $white;
+    width: 69px;
+    @include font(20,22);
   }
 }
 .logo {
@@ -373,6 +425,10 @@ h1 {
       display: block;
       font-weight: bold;
       color: $p42-color;
+      
+      &:hover {
+        text-decoration: none !important;
+      }
     }
   }
 }
@@ -973,7 +1029,7 @@ h1 {
   }
 }
 .projects-slideshow {
-  h1 {
+  h2 {
     color: $sharp-green;
     font-weight: 600;
     position: absolute;
@@ -982,6 +1038,7 @@ h1 {
     right: 0;
     z-index: 56;
     margin: 0;
+    @extend %text-center;
     @include font(50,55);
   }
   .btn-default {
@@ -1217,6 +1274,7 @@ h1 {
     @extend %layout;
     position: relative;
     width: 100%;
+    @extend %text-center;
 
     &:after {
       position: absolute;
@@ -1273,10 +1331,11 @@ h1 {
         filter: grayscale(1);
         -webkit-filter: grayscale(1);
         -moz-filter: grayscale(1);
+        max-width: 113px;
       }
     }
   }
-  h1 {
+  h2 {
     position: absolute;
     top: 0;
     left: 0;
@@ -1286,7 +1345,6 @@ h1 {
     padding: 33px 20px;
     z-index: 5;
     background: $white;
-    @include font(42,45);
     font-weight: 300;
     color: $sharp-green;
 
@@ -1553,40 +1611,59 @@ h1 {
     }
   }
 }
+.mobile-app {
+  @extend %layout;
+  background: $p42-background;
+
+  .container {
+    position: relative;
+    max-width: 1024px;
+  }
+  .mobile-img {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin: -207px 0 0;
+  }
+  .caption {
+    padding: 130px 490px 130px 30px;
+  }
+  .logo {
+    float: none;
+    margin: 0 auto;
+  }
+}
 .about-us {
-  
+  background: #d3d3d3;
+  @extend %layout;
+  position: relative;
+  z-index: 1;
+  padding: 51px 0;
+
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: url('../images/img08.jpg') no-repeat;
+    content: '';
+    width: 860px;
+    z-index: -1;
+  }
+  .description {
+    width: 50%;
+    @extend %pull-right;
+    color: $mix-black;
+    @include font(25,28);
+    font-weight: 300;
+    padding: 0 30px;
+  }
 }
 .submit-query {
   @extend %layout;
-
-  @include media('<tablet'){
-    margin: 0 0 20px;
-  }
-
-  .layout{
-    @include align-reset(top, 18, 21);
-  }
-
-  .input-holder{
-    width: 33.33%;
-    padding: 2px 10px 20px;
-    
-    @include media('<desktop'){
-      padding: 2px 2px 20px;
-    }
-      
-    @include media('<tablet'){
-      width: 100%;
-      display: block;
-      padding: 0 0 5px;
-    }
-
-    &.full-width {
-      @extend %full-width;
-    }
-  }
+  
   textarea,
-  input[type="text"],input[type="email"],input[type="password"]{
+  input[type="text"],input[type="email"],input[type="number"],input[type="password"]{
     @include squar(100%, 60px);
     display: block;
     margin: 0;
@@ -1616,56 +1693,109 @@ h1 {
     }
     
   }
-  textarea{
-    height: 200px;
+  textarea {
+    height: 170px;
+    overflow: auto;
+    margin: 0 10px 10px;
     resize: none;
   }
- button[type="submit"]{
-   display: block;
-   width: 350px;
-   @extend %text-upparcase;
-   @include font(18,21);
-   font-weight: 700;
-   border: 0;
-   padding: 0;
-   margin: 0 auto;
-   background: transparent;
+  .input-holder {
+    margin: 0 0 10px;
+    width: 50%;
+    padding: 0 0 0 10px;
+    @extend %pull-left;
+  }
+  button[type="submit"]{
+    display: block;
+    width: 98.6%;
+    color: $white;
+    @extend %text-upparcase;
+    @include font(20,24);
+    font-weight: 400;
+    border: 1px solid transparent;
+    padding: 20px;
+    margin: 0 0 0 10px;
+    background: $sharp-green;
+    position: relative;
 
-   @include media('<tablet'){
-     width: 100%;
-   }
+    span {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      margin: -11px 0 0;
+      color: $sharp-green;
+    }
 
-   span {
-     display: block;
-     position: relative;
-     background: $p42-color;
-     color: $white;
-     z-index: 1;
-     padding: 18px 10px;
-     overflow: hidden;
-     transition: background 0.5s ease;
-     -webkit-transition: background 0.5s ease;
-     -moz-transition: background 0.5s ease;
-   }
-   &:hover{
-     span{
-      background: $green;
-     }
-   }
- } 
+    &:hover {
+      background: $mix-black;
+      border: 1px solid $sharp-green;
+    }
+  } 
 }
 #footer {
-  background: $p42-background;
   @extend %layout;
   display: table-footer-group;
   height: 1%;
   width: 100%;
 
-  .copyright{
-    padding: 7px 20px;
-    @extend %text-right;
+  h1 { color: $white;}
 
-    @include media('<tablet'){ text-align: center;}
+  .footer-holder {
+    background: url('../images/img09.jpg') no-repeat;
+    background-size: cover;
+    position: relative;
+    @extend %layout;
+    z-index: 5;
+
+    &:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba($black, 0.75);
+      content: '';
+      z-index: -1;
+    }
+  }
+  .social-plugins {
+    @extend %listreset;
+    @include align-reset(top, 12,15);
+    margin: 40px 0 0;
+    @extend %text-center;
+
+    li {
+      width: 50%;
+    }
+  }
+  .container {
+    @extend %layout;
+    @include align-reset(top, 16,21);
+
+    .col {
+      padding: 50px 0;
+      width: 50%;
+    }
+  }
+  .bottom-footer {
+    @extend %layout;
+    @extend %container;
+    @include align-reset(top, 21,26);
+    color: $white;
+    font-weight: 300;
+    
+    a{
+      color: $white;
+      text-decoration: none;
+      &:hover { text-decoration: underline;}
+    }
+    
+    span, ul {
+      width: 50%;
+    }
+    ul {
+      @extend %text-right;
+    }
   }
 }
 .copyright{
