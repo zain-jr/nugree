@@ -373,14 +373,14 @@ $media-expressions: (
       .listing-image-slider {
         .slide {
           white-space: nowrap;
-          height: 315px;
+          height: 250px;
 
           &:after {
             width: 1px;
             margin: 0 0 0 -5px;
             @include align(middle);
             @extend %layout;
-            height: 315px;
+            height: 250px;
             content: '';
           }
           a {
@@ -465,12 +465,23 @@ $media-expressions: (
           position: absolute;
           top: 0;
           right: 0;
+          bottom: 0;
+          height: auto;
+
+          span {
+            line-height: 50px;
+          }
         }
 
         .btn-default {
           float: left;
           border-radius: 0;
-          padding: 0;
+          padding: 15px 50px 15px 20px;
+        }
+        .quick-links {
+          a {
+            padding: 11px 30px;
+          }
         }
       }
       .company-logo {
