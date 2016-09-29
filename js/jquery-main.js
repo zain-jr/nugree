@@ -245,7 +245,7 @@ function searchBtnFix()
 {
 	var asideFromLeft = $('#aside').position().left;
 	$('.filter-btn').css({
-		'left':asideFromLeft+15,
+		'left':asideFromLeft+10,
 		'width':$('#aside').width()
 	});
 }
