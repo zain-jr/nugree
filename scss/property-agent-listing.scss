@@ -366,11 +366,12 @@ $media-expressions: (
     }
     .price {
       position: absolute;
-      top: 0;
+      top: 20px;
       left: 0;
-      background: rgba($sharp-green, 0.5);
+      background: rgba($sharp-green, 0.8);
       color: $white;
       @include font(25,28);
+      padding: 10px;
     }
     .image-holder {
       @extend %layout;
