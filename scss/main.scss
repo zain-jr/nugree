@@ -1256,7 +1256,6 @@ h2 {
     margin: 30px 0 10px;
   }
 }
-
 .agent-slider {
   position: relative;
 
@@ -1454,62 +1453,6 @@ h2 {
     }
   }
 }
-.add-holder-page {
-  @extend %layout;
-  
-  .container-holder {
-    width: 70%;
-    float: left;
-    
-    .no-ads & {
-      width: 100%;
-      float: none;
-      overflow: hidden;
-      display: block;
-    }
-
-    @include media('<tablet'){
-      float: none;
-      max-width: inherit;
-      overflow: hidden;
-      width: 100%;
-    }
-  }
-}
-.Ads {
-  @extend %listreset;
-  @extend %text-center;
-  width: 15%;
-  float: left;
-  text-align: center;
-  margin: 1px 0 0;
-
-  @include media('<tablet'){
-    float: none;
-    max-width: inherit;
-    overflow: hidden;
-    width: 100%;
-    @include align-reset(top, 12,12);
-    display: none;
-  }
-
-  li {
-    display: block;
-    padding: 0 5px 10px;
-
-    @include media('<tablet'){
-      width: 33.33%;
-      @include align(top);
-    }
-
-    a {
-      display: block;
-      &:hover { opacity: 0.8;}
-
-      img { @extend %imf-res;}
-    }
-  }
-}
 .cities-section {
   @extend %layout;
   @extend %container;
@@ -1577,7 +1520,6 @@ h2 {
     }
   }
 }
-
 .agents-logo {
   @extend %listreset;
   @include align-reset(top, 18,22);
@@ -1861,7 +1803,6 @@ h2 {
     &:hover { color: $p42-color;}
   }
 }
-
 .price {
   display: block;
   color: $p42-default-grey;
@@ -2013,36 +1954,34 @@ h2 {
 .add-to-favorite {
   cursor: pointer;
   position: absolute;
-  top: -4px;
-  left: 5px;
-  @include squar(27px, 30px);
-  background: url('../images/sprite-fav.png') 0 -36px;
-  background-size: cover;
-  text-decoration: none;
-  transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
+  @include squar(50px,34px);
+  background: #e8e8e8;
+  color: $black;
+  float: right;
+  @extend %text-center;
+
+  span {
+    font-size: 20px;
+    line-height: 34px;
+    opacity: 0.5;
+    @include align(middle);
+  }
 
   &.added {
-    background: url('../images/sprite-fav.png') 0 0;
+    color: $red;
+    span { opacity: 1;}
   }
 }
 .premiumProperty {
   position: absolute;
-  top: 28px;
-  left: -38px;
+  top: 30%;
+  left: 0;
   color: $white;
   @include font(17, 20);
   font-weight: 600;
   background: $green;
   @extend %text-center;
-  width: 155px;
-  transform: rotate(319deg);
-  -webkit-transform: rotate(319deg);
-  -moz-transform: rotate(319deg);
-  -ms-transform: rotate(319deg);
-  box-shadow: 0 0 7px 0 rgba($black,0.5);
+  width: 100px;
 }
 .trusted-agent {
   background: $white;
@@ -2151,7 +2090,7 @@ h2 {
 }
 .quick-links {
   @extend %listreset;
-  @include align-reset(top, 25,25);
+  @include align-reset(top, 17,21);
   margin:0 -5px;
 
   li {
@@ -2162,10 +2101,15 @@ h2 {
       border: 1px solid $p42-color;
       color: $p42-color;
       display:  block;
-      border-radius: 4px;
       padding: 5px;
       width: auto;
       transition: background 0.5s ease, color 0.5s ease;
+      -webkit-transition: background 0.5s ease, color 0.5s ease;
+      -moz-transition: background 0.5s ease, color 0.5s ease;
+
+      span {
+        margin: 0 5px;
+      }
 
       &:hover {
         color: $white;
@@ -2175,65 +2119,56 @@ h2 {
   }
 }
 .public-ui-features {
-  color: $p42-default-grey;
   @extend %listreset;
-
-  @include media('<tablet'){
-    overflow: hidden;
-  }
+  @include align-reset(top, 16,20);
+  font-weight: 300;
 
   li {
-    display: block;
-    @include align-reset(top, 13, 16);
-
-    @include media('<tablet'){
-      float: left;
-      @include align-reset(top, 11, 14);
-    }
-
-    span[class^="icon-"], span[class*="icon-"] {
-      @include align(top);
-      width: 35%;
-      padding: 0;
-
-      @include media('<desktop'){
-        display:none;
-      }
-    }
-    b {
-      @include align(top);
-      font-weight: 400;
-      display: block;
-      @extend %text-right;
-
-      @include media('<tablet'){ width: auto;}
-    }
+    padding: 0 3px 6px;
+  }
+  span {
+    background: $p42-background;
+    color: $p42-default-grey;
+    @include align(top);
+    padding: 3px;
+  }
+}
+.listing-image-slider {
+  position: relative;
+  @extend %layout;
+  
+  .mask {
+    position: relative;
+    @extend %layout;
+  }
+  .slideset {
+    width: 99999px;
+    float: left;
+  }
+  .slide {
+    width: 100%;
+    float: left;
+  }
+  a { display: block;}
+  img { @extend %img-res;}
+  .btn-prev, .btn-next {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin: -20px 0 0;
+    z-index: 4;
+    color: $white;
+    text-decoration: none;
+    background: rgba($black, 0.7);
+    
     span {
-      padding: 0 5px;
-      width: 75%;
-
-      @include media('<tablet'){
-        width: auto;
-      }
+      font-size: 40px;
+      line-height: 1;
     }
-    strong {
-      width: 25%;
-      @include font(17,20);
-      font-weight: 700;
-      @extend %text-center;
-      padding: 0 10px 10px;
-      border-left: 1px solid $p42-default-grey;
-
-      @include media('<tablet'){
-        padding: 0 5px 5px;
-      }
-
-      @include media('<tablet'){
-        width: auto;
-        padding: 0 5px;
-        @include font(14,17);
-      }
-    }
+  }
+  .btn-next {
+    left: auto;
+    right: 0;
   }
 }
 .views {

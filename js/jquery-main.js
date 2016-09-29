@@ -172,24 +172,7 @@ function initCarousel() {
 		swipeGap: true
 	});
 
-	jQuery('.agent-societies').scrollGallery({
-		mask: '.agent-mask',
-		slider: '.agent-slideset',
-		slides: '.agent-slide',
-		currentNumber: 'span.cur-num',
-		totalNumber: 'span.all-num',
-		disableWhileAnimating: true,
-		circularRotation: true,
-		pauseOnHover: true,
-		autoRotation: false,
-		maskAutoSize: false,
-		stretchSlideToMask: true,
-		switchTime: 2000,
-		step:1,
-		animSpeed: 600
-	});
-
-	jQuery('.agent-logos').scrollGallery({
+	jQuery('.listing-image-slider').scrollGallery({
 		mask: '.mask',
 		slider: '.slideset',
 		slides: '.slide',
@@ -198,11 +181,10 @@ function initCarousel() {
 		disableWhileAnimating: true,
 		circularRotation: true,
 		pauseOnHover: true,
-		autoRotation: true,
-		maskAutoSize: false,
+		autoRotation: false,
+		maskAutoSize: true,
 		stretchSlideToMask: true,
 		switchTime: 2000,
-		step:1,
 		animSpeed: 600
 	});
 }
