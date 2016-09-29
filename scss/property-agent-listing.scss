@@ -361,8 +361,16 @@ $media-expressions: (
       padding: 0;
     }
     .quick-links {
-      float: left;
+      @extend %pull-right;
       margin: 0 5px;
+    }
+    .price {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba($sharp-green, 0.5);
+      color: $white;
+      @include font(25,28);
     }
     .image-holder {
       @extend %layout;
@@ -460,6 +468,7 @@ $media-expressions: (
         left: 339px;
         right: 0;
         @extend %layout;
+        padding: 0 60px 0 0;
 
         .add-to-favorite {
           position: absolute;
