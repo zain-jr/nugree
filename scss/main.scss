@@ -1129,6 +1129,10 @@ h2 {
     left: 50%;
     margin: 0 0 0 -100px;
     z-index: 5;
+
+    @include media('<tablet'){
+      margin: 0 0 0 -70px;
+    }
   }
   .slideset {
     height: 600px !important;
@@ -1173,6 +1177,12 @@ h2 {
         margin: 0 0 0 -300px;
       }
 
+      @include media('<tablet'){
+        max-width: 300px;
+        margin: 0 0 0 -150px;
+        @include font(16,25);
+      }
+
       p {
         margin: 0;
         a {
@@ -1193,10 +1203,20 @@ h2 {
     margin: -50px 0 0;
     opacity: 0.7;
 
+    @include media('<tablet'){
+      top: auto;
+      margin: 0 0 10px;
+      bottom: 0;
+    }
+
     span {
       &:before {
         font-size: 100px;
         line-height: 1;
+
+        @include media('<tablet'){
+          font-size: 60px;
+        }
       }
     }
     &:hover { opacity: 1;}
@@ -1371,6 +1391,8 @@ h2 {
       bottom: 0;
       content: '';
       box-shadow: 0 0 85px 85px rgba($white, 0.8);
+
+      @include media('<tablet'){ display: none;}
     }
   }
   .slideset{
@@ -1397,6 +1419,10 @@ h2 {
     }
     @include media('<desktop'){
       width: 25% !important;
+    }
+
+    @include media('<tablet'){
+      width: 50% !important;
     }
 
     a {
@@ -1446,6 +1472,10 @@ h2 {
     @include media('<desktop'){
       padding: 33px 10px;
     }
+    @include media('<tablet'){
+      position: static;
+      padding: 10px;
+    }
 
     &:after {
       position: absolute;
@@ -1456,6 +1486,7 @@ h2 {
       border-top: 120px solid $white;
       border-left: 0;
       content: '';
+      @include media('<tablet'){ display: none;}
     }
     &:before {
       position: absolute;
@@ -1466,6 +1497,7 @@ h2 {
       content: '';
       box-shadow: 8px -2px 8px -3px rgba($black, 0.6);
       transform: rotate(33deg);
+      @include media('<tablet'){ display: none;}
     }
   }
 }
@@ -1501,6 +1533,9 @@ h2 {
       @include media('<desktop'){
         @include font(16,20);
         padding: 20px 185px 20px 15px;
+      }
+      @include media('<desktop'){
+        padding: 20px;
       }
     }
   }
@@ -1557,6 +1592,12 @@ h2 {
     @include media('<desktop'){
       padding: 30px 0 0;
     }
+    @include media('<tablet'){
+      position: static;
+      width: 100%;
+      padding: 10px 0;
+      background: $p42-background;
+    }
 
     h1 {
       @extend %text-center;
@@ -1569,6 +1610,10 @@ h2 {
     text-decoration: none;
     color: $black;
     padding: 30px 0 5px;
+
+    @include media('<tablet'){
+      position: static;
+    }
 
     &:hover { color: $p42-color;}
 
@@ -1589,6 +1634,8 @@ h2 {
       width: 2px;
       background: $black;
       content: '';
+
+      @include media('<tablet'){ display: none;}
     }
   }
 }
@@ -1683,6 +1730,10 @@ h2 {
 
       li {
          width: 50%;
+
+         @include media('<tablet'){
+           width: 100%;
+         }
 
          img {
            max-height: 218px;
@@ -1794,9 +1845,18 @@ h2 {
     top: 50%;
     right: 0;
     margin: -202px 0 0;
+
+    @include media('<tablet'){
+      position: static;
+      margin: 20px 0 0;
+    }
   }
   .caption {
     padding: 130px 490px 130px 30px;
+    
+    @include media('<tablet'){
+      padding: 20px;
+    }
   }
   .logo {
     float: none;
@@ -1820,6 +1880,11 @@ h2 {
     content: '';
     width: 860px;
     z-index: -1;
+
+    @include media('<tablet'){
+      display: none; 
+    }
+    
   }
   .description {
     color: $mix-black;
@@ -1827,6 +1892,11 @@ h2 {
     font-weight: 300;
     padding: 0 30px;
     @extend %text-center;
+
+    @include media('<tablet'){
+      @include font(16,21);
+      font-weight: 400;
+    }
   }
 }
 .submit-query {
@@ -1845,6 +1915,12 @@ h2 {
     -webkit-transition: border-color 0.5s ease;
     -moz-transition: border-color 0.5s ease;
     -ms-transition: border-color 0.5s ease;
+
+    @include media('<tablet'){
+      @include squar(100%, 40px);
+      @include font(14,18);
+      padding: 8px 20px;
+    }
 
     &:focus{
       border-color: $p42-color;
@@ -1868,12 +1944,21 @@ h2 {
     overflow: auto;
     margin: 0 10px 8px;
     resize: none;
+
+    @include media('<tablet'){
+      margin: 0 0 10px;
+    }
   }
   .input-holder {
     margin: 0 0 10px;
     width: 50%;
     padding: 0 0 0 10px;
     @extend %pull-left;
+
+    @include media('<tablet'){
+      width: 100%;
+      padding: 0;
+    }
   }
   button[type="submit"]{
     display: block;
@@ -1887,6 +1972,11 @@ h2 {
     margin: 0 0 0 10px;
     background: $sharp-green;
     position: relative;
+
+    @include media('<tablet'){
+      width: 100%;
+      margin: 0;
+    }
 
     span {
       position: absolute;
@@ -1934,9 +2024,18 @@ h2 {
     margin: 40px 0 0;
     @extend %text-center;
 
+    @include media('<tablet'){
+      margin: 0;
+    }
+
     li {
       width: 50%;
       padding: 0 5px;
+
+      @include media('<tablet'){
+        width: 100%;
+        padding:  0 5px 10px;
+      }
     }
   }
   .container {
