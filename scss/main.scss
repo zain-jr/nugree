@@ -297,6 +297,10 @@ h2 {
   padding: 0 0 0 110px;
   box-shadow: 0 0 15px rgba($black,0.5);
 
+  @include media('<tablet'){
+    padding: 0 0 0 90px;
+  }
+
   .right-area {
     @extend %pull-right;
     @include align-reset(top,14,18);
@@ -307,6 +311,10 @@ h2 {
       padding: 26px 25px 25px;
       @include align(top);
       cursor: pointer;
+
+      @include media('<tablet'){
+        padding: 10px;
+      }
     }
     .searchOpener {
       background: $mix-black;
@@ -324,6 +332,10 @@ h2 {
     @include align-reset(top,14,18);
     @extend %text-upparcase;
 
+    @include media('<tablet'){
+      @include align-reset(top,23,23);
+    }
+
     li {
       &:first-child {
         a{
@@ -333,6 +345,11 @@ h2 {
           }
         }
       }
+      .hidden {
+        @include media('<tablet'){
+          display: block !important;
+        }  
+      }
       a {
         color: $white;
         background: $p42-color;
@@ -341,6 +358,9 @@ h2 {
 
         @include media('<desktop'){
           padding: 28px 25px;
+        }
+        @include media('<tablet'){
+          padding: 10px;
         }
 
         &:hover {
@@ -397,6 +417,10 @@ h2 {
   position: relative;
   float: left;
   @extend %layout;
+
+  @include media('<tablet'){
+    max-width: 100px;
+  }
 
   img{ @extend %img-res;}
   a{ display: block;}
@@ -585,11 +609,6 @@ h2 {
       color: $dark-grey;
       margin: 0 0 30px;
 
-      @include media('<tablet'){
-        width: 50%;
-        margin: 0 0 10px;
-      }
-
       span, label { color: $white;}
     }
   }
@@ -609,13 +628,6 @@ h2 {
     -webkit-transition: background 0.5s ease;
     -moz-transition: background 0.5s ease;
     -ms-transition: background 0.5s ease;
-
-    @include media('<tablet'){
-      @include font(16, 18);
-      padding: 5px;
-      width: 245px;
-      margin: 0 auto;
-    }
 
     &:hover {
       background: $mix-black;
@@ -1122,10 +1134,10 @@ h2 {
       left: auto;
 
       @include media('<widescreen'){
-        max-width: 700px;
+        max-width: 600px;
         margin: 0 auto;
         left: 50%;
-        margin: 0 0 0 -350px;
+        margin: 0 0 0 -300px;
       }
 
       p {
@@ -1453,6 +1465,10 @@ h2 {
         @include font(20,24);
         padding: 35px 185px 35px 15px;
       }
+      @include media('<desktop'){
+        @include font(16,20);
+        padding: 20px 185px 20px 15px;
+      }
     }
   }
   h1 {
@@ -1465,11 +1481,17 @@ h2 {
     @include media('<widescreen'){
       @include font(35,38);
     }
+    @include media('<desktop'){
+      @include font(22,26);
+    }
   }
   p {
     margin: 0;
     @include media('<widescreen'){
       margin: 0 0 10px;
+    }
+    @include media('<desktop'){
+      @extend .ellipsis;
     }
   }
   .btn-default {
@@ -1498,6 +1520,10 @@ h2 {
     padding: 50px 0 0;
     @extend %text-center;
     box-shadow: 0 0 15px rgba($black, 0.5);
+
+    @include media('<desktop'){
+      padding: 30px 0 0;
+    }
 
     h1 {
       @extend %text-center;
@@ -1561,6 +1587,12 @@ h2 {
 
     .col {
       width: 50%;
+
+      @include media('<desktop'){
+        width: 100%;
+        display: block;
+        padding: 0 10px;
+      }
     }
     a {
       display: block;
@@ -1961,9 +1993,7 @@ h2 {
   bottom: 0;
 
   @include media('<tablet'){
-    padding: 0;
-    @include squar(40px,40px);
-    margin: 1px 0 0;
+    width: 60px;
   }
 
   &:hover {
@@ -1983,12 +2013,6 @@ h2 {
     transition: right 0.5s ease;
     -webkit-transition: right 0.5s ease;
     -moz-transition: right 0.5s ease;
-
-    @include media('<tablet'){
-      width: auto;
-      right: 20%;
-      left: 20%;
-    }
   }
   &:before{
     top: auto;
@@ -1998,11 +2022,6 @@ h2 {
     top: 45%;
     margin: -4px 0 0;
     right: 40%;
-    
-    @include media('<tablet'){
-      width: auto;
-      right: 20%;
-    }
   }
   strong {
     font-weight: 600;
@@ -2013,6 +2032,10 @@ h2 {
     right: 0;
     @extend %text-center;
     @include font(14,18);
+
+    @include media('<tablet'){
+      display: none;
+    }
   }
 }
 .calculatedPrice {
