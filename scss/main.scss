@@ -4,7 +4,7 @@ $breakpoints: (
   'tablet': 768px,
   'desktop': 1024px,
   'widescreen': 1200px,
-  'tvscreen':1540px,
+  'tvscreen':1600px,
 );
 
 // keywords
@@ -81,9 +81,8 @@ html {
   font-weight: 700;
   text-decoration: none;
   color: $white;
-  background: $sharp-green;
+  background: $p42-color;
   padding: 10px 25px;
-  border: 0;
   transition: background 0.4s ease;
   -webkit-transition: background 0.4s ease;
   -moz-transition: background 0.4s ease;
@@ -95,7 +94,7 @@ html {
   }
 
   &:hover {
-    background: lighten( $p42-color, 10%);
+    background: $sharp-green;
   }
 }
 .customCheckbox,
@@ -244,6 +243,10 @@ h1 {
   @extend %text-center;
   color: $mix-black;
 
+  @include media('<desktop'){
+    @include font(30px,33px);
+  }
+
   span {
     @include align(top);
     font-weight: 300;
@@ -255,6 +258,10 @@ h2 {
   @include font(41,44);
   font-weight: 300;
   color: $p42-color;
+
+  @include media('<desktop'){
+    @include font(28,31);
+  }
 }
 #wrapper {
   width: 100%;
@@ -331,6 +338,10 @@ h2 {
         background: $p42-color;
         display: block;
         padding:28px 50px;
+
+        @include media('<desktop'){
+          padding: 28px 25px;
+        }
 
         &:hover {
           background: darken($p42-color, 5%);
@@ -500,8 +511,12 @@ h2 {
   background: rgba($black, 0.6);
   padding: 50px;
 
-  @include media('<tablet'){
-    margin: 0 auto 15px;
+  @include media('<tvscreen'){
+    width: 450px;
+  }
+  @include media('<desktop'){
+    width: 350px;
+    padding: 50px 20px; 
   }
 
   .select2 {
@@ -906,6 +921,14 @@ h2 {
     @extend %layout;
     @extend %text-center;
 
+    @include media('<tvscreen'){
+      right: 100px;
+    }
+    @include media('<widescreen'){
+      right: 10px;
+      top: 80%;
+    }
+
     .btn-prev, .btn-next {
       float: left;
       width: 48%;
@@ -972,6 +995,10 @@ h2 {
     }
     img {
       @extend %img-res;
+
+      @include media('<tvscreen'){
+        min-width: 1600px;
+      }
     }
     .container {
       position: absolute;
@@ -989,12 +1016,28 @@ h2 {
       left: 200px;
       @include font(20,24);
 
+      @include media('<widescreen'){
+        left: 220px;
+        padding: 50px 130px 0 0;
+        @include font(16,20);
+      }
+      @include media('<desktop'){
+        left: 180px;
+        @include font(14,20);
+        padding: 12px 0 0 0;
+      }
+
       h1 {
         margin: 0 0 15px;
         @include font(75,77);
         font-weight: bold;
         color: $white;
         @extend %text-left;
+
+        @include media('<widescreen'){
+          @include font(60,67);
+        }
+
         span {
           color: $p42-color;
           position: relative;
@@ -1077,6 +1120,13 @@ h2 {
       white-space: normal;
       padding: 0;
       left: auto;
+
+      @include media('<widescreen'){
+        max-width: 700px;
+        margin: 0 auto;
+        left: 50%;
+        margin: 0 0 0 -350px;
+      }
 
       p {
         margin: 0;
@@ -1297,6 +1347,13 @@ h2 {
     width: 12.5% !important;
     @extend %text-center;
 
+    @include media('<tvscreen'){
+      width: 16.66% !important;
+    }
+    @include media('<desktop'){
+      width: 25% !important;
+    }
+
     a {
       display: block;
       min-height: 120px;
@@ -1340,6 +1397,10 @@ h2 {
     background: $white;
     font-weight: 300;
     color: $sharp-green;
+
+    @include media('<desktop'){
+      padding: 33px 10px;
+    }
 
     &:after {
       position: absolute;
@@ -1387,6 +1448,11 @@ h2 {
       font-weight: 300;
       padding: 35px 285px 35px 15px;
       @include font(25,28);
+
+      @include media('<widescreen'){
+        @include font(20,24);
+        padding: 35px 185px 35px 15px;
+      }
     }
   }
   h1 {
@@ -1395,15 +1461,29 @@ h2 {
     @include font(41,42);
     font-weight: 300;
     @extend %text-left;
+
+    @include media('<widescreen'){
+      @include font(35,38);
+    }
   }
   p {
     margin: 0;
+    @include media('<widescreen'){
+      margin: 0 0 10px;
+    }
   }
   .btn-default {
     position: absolute;
     bottom: 0;
     right: 100px;
     background: $black;
+
+    @include media('<tvscreen'){
+      right: 200px;
+    }
+    @include media('<widescreen'){
+      position: static;
+    }
 
     &:hover { background: $sharp-green;}
   }
@@ -1460,11 +1540,24 @@ h2 {
   overflow: visible;
   @extend %clearfix;
 
+  @include media('<tvscreen'){
+    max-width: 1200px;
+    padding: 30px 0;
+  }
+  @include media('<widescreen'){
+    max-width: 1020px;
+    padding: 30px 0;
+  }
+
   .layout {
     @include align-reset(top,30,33);
     padding: 0 0 20px;
     overflow: visible;
     @extend %clearfix;
+
+    @include media('<widescreen'){
+      @include align-reset(top,20,23);
+    }
 
     .col {
       width: 50%;
@@ -1502,10 +1595,21 @@ h2 {
       z-index: 5;
       @extend %text-center;
       padding: 8px;
+
+      @include media('<widescreen'){
+        @include font(30,34);
+      }
     }
     img {
       @extend %img-res;
       max-height: 436px;
+
+      @include media('<tvscreen'){
+        max-height: 358px;
+      }
+      @include media('<widescreen'){
+        max-height: 302px;
+      }
     }
     ul {
       @extend %listreset;
@@ -1515,7 +1619,16 @@ h2 {
       li {
          width: 50%;
 
-         img { max-height: 218px;}
+         img {
+           max-height: 218px;
+           
+          @include media('<tvscreen'){
+            max-height: 179px;
+          }
+          @include media('<widescreen'){
+            max-height: 151px;
+          }
+        }
       }
     }
   }
@@ -1688,7 +1801,7 @@ h2 {
   textarea {
     height: 170px;
     overflow: auto;
-    margin: 0 10px 10px;
+    margin: 0 10px 8px;
     resize: none;
   }
   .input-holder {
@@ -1768,6 +1881,19 @@ h2 {
     .col {
       padding: 50px 0;
       width: 50%;
+
+      @include media('<tvscreen'){
+        width: 60%;
+
+        &:first-child {
+          width: 40%;
+        }
+      }
+      @include media('<widescreen'){
+        width: 100%;
+        padding: 20px 0 0;
+        &:first-child { width: 100%;} 
+      }
     }
   }
   .bottom-footer {
@@ -1981,7 +2107,7 @@ h2 {
   font-weight: 600;
   background: $green;
   @extend %text-center;
-  width: 100px;
+  width: 167px;
 }
 .trusted-agent {
   background: $white;
@@ -2098,8 +2224,8 @@ h2 {
 
     a {
       text-decoration: none;
-      border: 1px solid $p42-color;
-      color: $p42-color;
+      border: 1px solid $p42-default-grey;
+      color: $p42-default-grey;
       display:  block;
       padding: 5px;
       width: auto;
@@ -2113,7 +2239,7 @@ h2 {
 
       &:hover {
         color: $white;
-        background: $p42-color;
+        background: $p42-default-grey;
       }
     }
   }

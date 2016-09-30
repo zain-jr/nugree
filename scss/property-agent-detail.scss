@@ -4,7 +4,7 @@ $breakpoints: (
   'tablet': 768px,
   'desktop': 1024px,
   'widescreen': 1200px,
-  'tvscreen':1540px,
+  'tvscreen':1600px,
 );
 
 // keywords
@@ -144,7 +144,6 @@ $media-expressions: (
     }
     .heading {
       color: $p42-color;
-      font-family: $open-sans;
       @include font(21,24);
       font-weight: 700;
       margin: 0 0 10px;
@@ -197,7 +196,6 @@ $media-expressions: (
     h1 {
       @extend %text-left;
       font-weight: 700;
-      font-family: $open-sans;
       @include font(27,30);
       margin: 0 0 15px;
 
@@ -753,7 +751,6 @@ $media-expressions: (
     .list {
       @extend %listreset;
       @include font(17,20);
-      font-family: $open-sans;
 
       @include media('<desktop'){
         @include font(14,18);
@@ -806,7 +803,6 @@ $media-expressions: (
   .agentDetail-list {
     @extend %listreset;
     color: $p42-default-grey;
-    font-family: $open-sans;
     @include font(17,21);
     margin: 0 0 30px;
 

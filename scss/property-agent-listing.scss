@@ -49,6 +49,7 @@ $media-expressions: (
     position: relative;
     @extend .pull-left;
     overflow: hidden;
+    background: $p42-background;
     box-shadow: 0 0 20px -9px rgba($black, 0.5);
 
     @include media('<desktop'){
@@ -84,7 +85,7 @@ $media-expressions: (
     }
 
     .top-head {
-      background: $p42-color;
+      background: $mix-black;
       @extend %layout;
       position: relative;
       color: $white;
@@ -184,8 +185,8 @@ $media-expressions: (
       padding: 0 2px;
 
       &:last-child{ button{
-        background: $p42-default-grey;
-        &:hover { background: darken($p42-default-grey, 10);}
+        background: $mix-black;
+        &:hover { background: darken($mix-black, 10);}
        }
       }
     }
@@ -198,14 +199,14 @@ $media-expressions: (
       display: block;
       border: 0;
       color: $white;
-      background: $green;
+      background: $sharp-green;
       padding: 10px;
       transition: background 0.5s ease;
       -webkit-transition: background 0.5s ease;
       -moz-transition: background 0.5s ease;
 
       &:hover {
-        background: darken($green, 5%);
+        background: darken($sharp-green, 5%);
       }
     }
   }
@@ -349,7 +350,7 @@ $media-expressions: (
   .publicProperty-post {
     @extend %layout;
     background: $white;
-    margin: 10px 0;
+    margin: 10px 0 30px;
     position: relative;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.30);
 
@@ -368,7 +369,7 @@ $media-expressions: (
       position: absolute;
       top: 20px;
       left: 0;
-      background: rgba($sharp-green, 0.8);
+      background: $dark-grey;
       color: $white;
       @include font(25,28);
       padding: 10px;
@@ -401,7 +402,7 @@ $media-expressions: (
     }
     .caption {
       @extend %layout;
-      @include font(13,16);
+      @include font(16,20);
       color: $p42-default-grey;
       padding: 0 10px 0 20px;
 
@@ -445,7 +446,6 @@ $media-expressions: (
       }
       .btn-default {
         @include font(12,15);
-        border-radius: 4px;
         position: relative;
         padding: 10px 37px 10px 15px;
         
@@ -461,11 +461,13 @@ $media-expressions: (
         overflow: visible;
         @extend %clearfix;
 
-        p { margin: 0;}
+        p {
+          margin: 0;
+        }
       }
       .links-holder {
         position: absolute;
-        bottom: 0;
+        bottom: 10px;
         left: 339px;
         right: 0;
         @extend %layout;
@@ -485,8 +487,15 @@ $media-expressions: (
 
         .btn-default {
           float: left;
-          border-radius: 0;
-          padding: 15px 50px 15px 20px;
+          border: 1px solid $p42-default-grey;
+          background: transparent;
+          color: $p42-default-grey;
+          padding: 14px 50px 14px 20px;
+
+          &:hover {
+            background: $p42-default-grey;
+            color: $white;
+          }
         }
         .quick-links {
           a {
