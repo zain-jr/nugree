@@ -298,7 +298,7 @@ h2 {
   box-shadow: 0 0 15px rgba($black,0.5);
 
   @include media('<tablet'){
-    padding: 0 0 0 90px;
+    padding: 0 0 0 62px;
   }
 
   .right-area {
@@ -313,7 +313,7 @@ h2 {
       cursor: pointer;
 
       @include media('<tablet'){
-        padding: 10px;
+        padding: 10px 15px;
       }
     }
     .searchOpener {
@@ -360,7 +360,7 @@ h2 {
           padding: 28px 25px;
         }
         @include media('<tablet'){
-          padding: 10px;
+          padding: 10px 15px;
         }
 
         &:hover {
@@ -420,6 +420,7 @@ h2 {
 
   @include media('<tablet'){
     max-width: 100px;
+    margin: 7px 0 0;
   }
 
   img{ @extend %img-res;}
@@ -525,6 +526,10 @@ h2 {
 .page-holder {
   @extend %layout;
   padding: 74px 0 0;
+
+  @include media('<tablet'){
+    padding: 42px 0 0;
+  }
 }
 .index-page {
   @extend %layout;
@@ -542,13 +547,27 @@ h2 {
     width: 350px;
     padding: 50px 20px; 
   }
+  @include media('<tablet'){
+    width: 100%;
+  }
 
   .select2 {
     width: 100% !important;
     margin: 0 0 30px;
   }
-  .select2-container--default .select2-selection--single .select2-selection__rendered { line-height: 50px;}
-  .select2-container--default .select2-selection--single { height: 50px; }
+  .select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 50px;
+    @include media('<tablet'){
+      line-height: 40px;
+    }
+  }
+  .select2-container--default .select2-selection--single {
+    height: 50px;
+
+    @include media('<tablet'){
+      height: 40px;
+    }
+  }
   .select2-container--default .select2-selection--single .select2-selection__arrow {
     width: 50px;
     background: $mix-black;
@@ -584,6 +603,10 @@ h2 {
         @extend %text-center;
         color: $white;
         @include font(25,28);
+
+        @include media('<tablet'){
+          @include font(20,28);
+        }
       }
       input:checked {
         ~ span { background: $p42-color;}
@@ -591,6 +614,10 @@ h2 {
       span {
         border: 2px solid $p42-color;
         padding: 20px 10px;
+
+        @include media('<tablet'){
+          padding: 10px;
+        }
       }
     }
   }
@@ -915,6 +942,10 @@ h2 {
     @extend %layout;
     width: 100%;
     height:522px !important;
+
+    @include media('<tablet'){
+      height:480px !important;
+    }
   }
   .container {
     position: absolute;
@@ -940,6 +971,7 @@ h2 {
       right: 10px;
       top: 80%;
     }
+    @include media('<tablet'){ display: none;}
 
     .btn-prev, .btn-next {
       float: left;
@@ -1038,6 +1070,7 @@ h2 {
         @include font(14,20);
         padding: 12px 0 0 0;
       }
+      @include media('<tablet'){ display: none;}
 
       h1 {
         margin: 0 0 15px;
@@ -1993,7 +2026,7 @@ h2 {
   bottom: 0;
 
   @include media('<tablet'){
-    width: 60px;
+    width: 50px;
   }
 
   &:hover {
@@ -2013,15 +2046,29 @@ h2 {
     transition: right 0.5s ease;
     -webkit-transition: right 0.5s ease;
     -moz-transition: right 0.5s ease;
+
+    @include media('<tablet'){
+      left: 20%;
+      right: 20%;
+    }
   }
   &:before{
     top: auto;
     bottom: 42%;
+
+    @include media('<tablet'){
+      bottom: 20%;
+    }
   }
   span {
     top: 45%;
     margin: -4px 0 0;
     right: 40%;
+
+    @include media('<tablet'){
+      right: 20%;
+      top: 55%;
+    }
   }
   strong {
     font-weight: 600;
