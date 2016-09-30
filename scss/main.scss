@@ -2066,18 +2066,29 @@ h2 {
     @include align-reset(top, 21,26);
     color: $white;
     font-weight: 300;
-    
+
+    .rights {
+      @include media('<tablet'){ display: none !important;}
+    }
+
     a{
       color: $white;
       text-decoration: none;
       &:hover { text-decoration: underline;}
     }
     
+
     span, ul {
       width: 50%;
+
+      @include media('<tablet'){ width: 100%;}
     }
     ul {
       @extend %text-right;
+
+      @include media('<tablet'){
+        text-align: center;
+      }
     }
   }
 }
