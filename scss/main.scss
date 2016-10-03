@@ -199,8 +199,8 @@ html {
     background: $white;
     border: 0;
     padding: 0 10px;
-    @include font(14, 28);
-    height: 28px;
+    @include font(14, 40);
+    height: 40px;
   }
 }
 .select2-container{
@@ -235,6 +235,21 @@ html {
     line-height: 16px;
   }
 }
+.select2-container .select2-selection--multiple { min-height: 40px; }
+.select2-container--default .select2-selection--multiple {
+  border: 0;
+  border-radius: 0;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__rendered{ line-height: 40px; color: $black;}
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  background: $p42-color;
+  color: $white;
+  border: 0;
+  border-radius: 0;
+  margin:4px 5px 0 0;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove { color:  $white; margin-right: 10px;}
+.select2-container--default.select2-container--focus .select2-selection--multiple { border: 0;}
 h1 {
   @include font(42px,45px);
   font-weight: 700;
@@ -296,6 +311,7 @@ h2 {
   background: $p42-background;
   padding: 0 0 0 110px;
   box-shadow: 0 0 15px rgba($black,0.5);
+  min-width: 320px;
 
   @include media('<tablet'){
     padding: 0 0 0 62px;
@@ -308,7 +324,7 @@ h2 {
 
     a {
       text-decoration: none;
-      padding: 26px 25px 25px;
+      padding: 25px;
       @include align(top);
       cursor: pointer;
 
@@ -337,13 +353,26 @@ h2 {
     }
 
     li {
+      position: relative;
       &:first-child {
         a{
           background: $dark-grey;
+
+          span {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 110px;
+            display: block;
+          }
+
           &:hover {
             background: darken($dark-grey, 5%);
           }
         }
+      }
+      &:hover {
+        .dropDown { display: block;}
       }
       .hidden {
         @include media('<tablet'){
@@ -354,10 +383,10 @@ h2 {
         color: $white;
         background: $p42-color;
         display: block;
-        padding:28px 50px;
+        padding:28px 50px 27px;
 
         @include media('<desktop'){
-          padding: 28px 25px;
+          padding: 27px 25px;
         }
         @include media('<tablet'){
           padding: 10px 15px;
@@ -494,7 +523,7 @@ h2 {
   @include media('<tablet'){
     width: 150px;
     left: 50%;
-    margin: 0 0 0 -75px;
+    margin: 0 0 0 -80px;
   }
 
   li {
@@ -520,6 +549,8 @@ h2 {
       border-color: $p42-color;
       border-style: solid;
       border-radius: 0;
+      padding: 20px !important;
+      @extend %text-center;
 
       @include media('<tablet'){
         padding: 10px !important;
@@ -530,10 +561,11 @@ h2 {
 #main {
   @extend %layout;
   position: relative;
+  background: #f4f4f4;
 }
 .page-holder {
   @extend %layout;
-  padding: 74px 0 0;
+  padding: 73px 0 0;
 
   @include media('<tablet'){
     padding: 42px 0 0;
@@ -941,6 +973,8 @@ h2 {
 .news-slideshow {
   @extend %layout;
   position: relative;
+  z-index: 6;
+  
 
   .mask {
     position: relative;
@@ -949,7 +983,7 @@ h2 {
   .slideset{
     @extend %layout;
     width: 100%;
-    height:522px !important;
+    height:599px !important;
 
     @include media('<tablet'){
       height:480px !important;
@@ -989,10 +1023,12 @@ h2 {
       opacity: 0.7;
       color: $black;
       margin: 0 1px;
-      padding: 15px; 
+      padding: 15px;
+      position: relative;
 
       &.disabled {
-        cursor: default;
+        opacity: 0.2;
+        cursor: text !important;
       }
 
       &:hover {
@@ -1381,6 +1417,7 @@ h2 {
 }
 .agent-slider {
   position: relative;
+  background: $white;
 
   @include media('<desktop'){
     width: 100%;
@@ -1512,7 +1549,7 @@ h2 {
 .latest-news {
   position: relative;
   @extend %layout;
-  background:$p42-background;
+  background:$white;
 
   .mask {
     position: relative;
@@ -1744,7 +1781,7 @@ h2 {
          }
 
          img {
-           max-height: 218px;
+           max-height: 205px;
            
           @include media('<tvscreen'){
             max-height: 179px;
@@ -2282,7 +2319,7 @@ h2 {
   }
 
   &.added {
-    color: $red;
+    color: $orange;
     span { opacity: 1;}
   }
 }
@@ -2296,23 +2333,38 @@ h2 {
   background: $green;
   @extend %text-center;
   width: 167px;
+
+  @include media('<widescreen'){
+    @include font(14,18);
+    width: 100px;
+  }
+  @include media('<tablet'){
+    position: static;
+    @include align(top);
+    width: auto;
+    padding: 5px;
+    margin: 0 0 16px;
+  }
 }
 .trusted-agent {
   background: $white;
   position: relative;
-  @include font(13,17);
+  @include font(14,18);
   font-weight: 600;
-  border: 1px solid $p42-default-grey;
   @include align(top);
-  padding: 0 5px 0 24px;
+  padding: 0 5px 0 30px;
   margin: 15px 0 0 10px;
-  box-shadow: 0 1px 7px rgba($black, 0.5);
+
+  @include media('<tablet'){
+    padding: 0 5px 0 22px;
+  }
 
   span[class^="icon-"],span[class*="icon-"]{
     position: absolute;
-    top: -10px;
+    top: -5px;
     left: -1px;
     @include font(30,23);
+    color: $orange;
 
     @include media('<tablet'){
       @include font(21,23);
@@ -2407,6 +2459,10 @@ h2 {
   @include align-reset(top, 17,21);
   margin:0 -5px;
 
+  @include media('<widescreen'){
+    @include align-reset(top, 14,18);
+  }
+
   li {
     padding: 0 5px;
 
@@ -2475,6 +2531,10 @@ h2 {
     text-decoration: none;
     background: rgba($black, 0.7);
     
+    @include media('<tablet'){
+      display: none;
+    }
+
     span {
       font-size: 40px;
       line-height: 1;
@@ -2781,26 +2841,31 @@ h2 {
   font-weight: 700;
   margin: 10px 0 0;
   @extend %layout;
+  @extend %text-center;
 
   @include media('<desktop'){
     @include align-reset(top, 12,15);
     text-align: center;
   }
-  
-  &.subtype-links {
-    border-radius: 8px;
-    margin: -2px 0 10px;
-    background: $p42-background;
 
-    @include media('<desktop'){
-      text-align: left;
+  &.fore-type {
+    max-width: 800px;
+    margin: 10px auto;
 
-      li {
-        padding: 5px;
+    li { padding: 0 5px;}
 
-        @include media('<phone'){
-          width: 50%;
-        }
+    .customRadio{
+      .fake-label{
+        padding: 10px;
+        display: block;
+        border: 2px solid $p42-color;
+      }
+    }
+    input:checked ~{
+      .fake-label{
+        background: $sharp-green;
+        border-color: $sharp-green;
+        color: $white;
       }
     }
   }
@@ -2808,7 +2873,6 @@ h2 {
   li {
     width: 25%;
     font-weight: 600;
-    padding: 10px 20px;
 
     @include media('<desktop'){
       width: 33.33%;
@@ -2818,26 +2882,28 @@ h2 {
       padding: 10px 3px;
     }
 
-    &.active {
-      border-radius: 8px 8px 0 0;
-      background: $p42-background;
-      position: relative;
-
-      &:after {
-        position: absolute;
-        bottom: 0;
-        left: -1px;
-        right: -1px;
-        background: $p42-background;
-        content: '';
-        height: 5px;
-      }
+    span, label {
+      @extend %text-captial;
+      font-weight: 400;
+      @include font(18,21);
+      padding: 0;
+      display: block;
+    }
+    .customRadio {
+      text-align: center !important;
     }
 
-    .custom-withouChecks {
-      margin: 0 auto;
-      max-width: 170px;
-      width: 100%;
+    &.active {
+      position: relative;
+    }
+  }
+  &.subtype-links {
+    li {
+      padding: 10px 20px;
+      .customRadio {
+        padding: 0 20px 0 30px;
+        text-align: left !important;
+      }
     }
   }
 }
@@ -2862,11 +2928,11 @@ h2 {
 .registerNow-heading,
 .add-pro-heading {
     display: block;
-    @extend %text-center;
     @extend %text-capital;
     color: $dark-grey;
     @include font(20,24);
     font-weight: 600;
+    padding: 0 0 0 110px;
     overflow: hidden;
     
     @include media('<tablet'){
@@ -2960,7 +3026,7 @@ h2 {
     left: 0;
     bottom: 0;
     background: rgba($white, 0.7);
-    z-index: 789;
+    z-index: 55;
     content: '';
   }
   &:before {

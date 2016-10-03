@@ -4,6 +4,10 @@ jQuery(window).load(function(){
 
 $(document).ready(function() {
 	$(".js-example-basic-single").select2();
+	$(".js-example-basic-multiple").select2({
+		    placeholder: "Select Location",
+    		allowClear: true
+	});
 	if (screen.width < 768){
 		$('.call-agent-btn').each(function(){
 			var mobileNumber = $(this).attr('data-tel');
