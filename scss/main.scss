@@ -983,7 +983,7 @@ h2 {
   .slideset{
     @extend %layout;
     width: 100%;
-    height:593px !important;
+    height:513px !important;
 
     @include media('<tablet'){
       height:480px !important;
@@ -1418,6 +1418,7 @@ h2 {
 .agent-slider {
   position: relative;
   background: $white;
+  @extend %layout;
 
   @include media('<desktop'){
     width: 100%;
@@ -1549,7 +1550,7 @@ h2 {
 .latest-news {
   position: relative;
   @extend %layout;
-  background:$white;
+  background:$p42-background;
 
   .mask {
     position: relative;
