@@ -383,7 +383,7 @@ $media-expressions: (
     .image-holder {
       @extend %layout;
       @extend %pull-left;
-      max-width: 315px;
+      max-width: 200px;
       background: $p42-background;
 
       @include media('<tvscreen'){
