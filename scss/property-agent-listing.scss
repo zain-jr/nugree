@@ -383,7 +383,7 @@ $media-expressions: (
     .image-holder {
       @extend %layout;
       @extend %pull-left;
-      max-width: 200px;
+      max-width: 315px;
       background: $p42-background;
 
       @include media('<tvscreen'){
@@ -633,8 +633,9 @@ $media-expressions: (
   padding: 30px 5px;
 
   .image-holder {
-    min-width: 200px;
-    max-height: 200px;
+    min-width: 200px !important;
+    max-height: 200px !important;
+    max-width: 200px !important;
     white-space: nowrap;
 
     @include media('<tablet'){
