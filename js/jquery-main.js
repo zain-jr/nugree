@@ -25,6 +25,7 @@ $(document).ready(function() {
 			$(this).find('.news-pagination').remove();
 		}
 	});
+	
 	$(window).trigger('scroll');
 	imageAdjustment();
 });
