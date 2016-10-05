@@ -203,28 +203,10 @@ function initFixedScrollBlock() {
 		extraTop: 100
 	});
 }
-
-// accordion init
-function initAccordion() {
-	jQuery('.accordion').slideAccordion({
-		opener:'>a.opener',
-		slider:'>.slide',
-		collapsible:false,
-		animSpeed: 300
-	});
-}
 // smooth anchor links
 function initAnchors() {
 	new SmoothScroll({
 		anchorLinks: '.back-to-top'
-	});
-	// common case:
-	new SmoothScroll({
-		extraOffset: $('#header').height() || 20,
-		anchorLinks: '.scroll',
-		activeClasses: 'link',
-		wheelBehavior: 'ignore',
-		animDuration: 800
 	});
 }
 function searchBtnFix()
@@ -259,11 +241,11 @@ function handleSearchBtnPosition(){
 function activateBackToTop(){
 	var scroll = $(window).scrollTop();
 
-    if (scroll >= 200) {
-		$('.back-to-top').addClass('active')
+    if (scroll >= 500) {
+		$('.search-property').addClass('active')
     }
 	else {
-		$('.back-to-top').removeClass('active')
+		$('.search-property').removeClass('active')
 	}
 }
 
