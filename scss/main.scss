@@ -3054,7 +3054,7 @@ h2 {
   @include align(top);
   padding: 30px 0;
   @extend %layout;
-  background: url('../images/ico02.png') no-repeat;
+  background:$p42-color url('../images/ico02.png') no-repeat;
   background-size: 100% 100%;
 
   @include media('<tablet'){

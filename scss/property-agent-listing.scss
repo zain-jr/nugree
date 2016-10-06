@@ -674,6 +674,8 @@ $media-expressions: (
   #content {
     @extend .layout;
     padding: 0 0 0 10px;
+    overflow: visible;
+    @extend %clearfix;
 
     @include media('<desktop'){ padding: 0;}
   }
