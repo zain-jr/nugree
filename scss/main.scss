@@ -366,7 +366,7 @@ h2 {
       cursor: pointer;
 
       @include media('<tablet'){
-        padding: 10px 15px;
+        padding: 9px 15px 11px;
       }
     }
     .searchOpener {
@@ -2001,10 +2001,6 @@ h2 {
     content: '';
     z-index: -1;
     opacity: 0.9;
-
-    @include media('<tablet'){
-      display: none; 
-    }
     
   }
   .description {
@@ -2299,6 +2295,7 @@ h2 {
     @include media('<tablet'){
       right: 20%;
       top: 55%;
+      margin: -4px 0 0;
     }
   }
   strong {
@@ -2931,6 +2928,10 @@ h2 {
       @include font(18,21);
       padding: 0;
       display: block;
+
+      @include media('<tablet'){
+        @include font(12,15);
+      }
     }
     .customRadio {
       text-align: center !important;
@@ -2944,6 +2945,11 @@ h2 {
     li {
       width: 16.66%;
       padding: 10px 20px;
+
+      @include media('<tablet'){
+        width: 50%;
+      }
+
       .customRadio {
         padding: 0 20px 0 30px;
         text-align: left !important;

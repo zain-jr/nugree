@@ -309,7 +309,7 @@ $media-expressions: (
           height: 460px !important;
 
           @include media('<tablet'){
-            height: 200px !important;
+            height: 160px !important;
           }
         }
       }
