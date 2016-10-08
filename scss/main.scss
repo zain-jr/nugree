@@ -2412,7 +2412,7 @@ h2 {
 }
 .clearfix {
   display: block;
-  overflow: visible;
+  overflow: visible !important;
   @extend %clearfix;
 }
 .feedBack {
