@@ -2869,8 +2869,8 @@ h2 {
     }
     input:checked ~{
       .fake-label{
-        background: $sharp-green;
-        border-color: $sharp-green;
+        background: $p42-color;
+        border-color: $p42-color;
         color: $white;
       }
     }
@@ -2905,6 +2905,7 @@ h2 {
   }
   &.subtype-links {
     li {
+      width: 16.66%;
       padding: 10px 20px;
       .customRadio {
         padding: 0 20px 0 30px;
