@@ -51,10 +51,10 @@ $(window).scroll(function() {
 });
 // page init
 jQuery(function(){
+	initAnchors();
 	initLightbox();
 	initCarousel()
 	initSlideShow();
-	initAnchors();
 });
 
 // slideshow init
@@ -198,6 +198,7 @@ function initFixedScrollBlock() {
 // smooth anchor links
 function initAnchors() {
 	new SmoothScroll({
+		extraOffset: $('#header').height() || 20,
 		anchorLinks: '.back-to-top'
 	});
 }
@@ -262,7 +263,7 @@ $(document).mouseup(function (e)
 	}
 });
 
-$(document).on('click', '.generic-lightbox>.close, .fancybox-close, .got-it, .btn-close-working .close', function(){
+$(document).on('click', '.generic-lightbox>.close, .fancybox-close, .close', function(){
 	$('#wrapper').removeClass('fancy-overlay');
 });
 
