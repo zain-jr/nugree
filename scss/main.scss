@@ -181,7 +181,7 @@ html {
     bottom: 1px;
     background: rgba($white, 0.8);
     content: '';
-    z-index: 9;
+    z-index: 5;
     display: none;
   }
   &:before {
@@ -192,7 +192,7 @@ html {
     background-size: 100% 100%;
     @include squar(30px, 30px);
     content: '';
-    z-index: 91;
+    z-index: 6;
     margin: -15px 0 0 -15px;
     display: none;
   }
