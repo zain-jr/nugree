@@ -1176,6 +1176,7 @@ h2 {
   }
 }
 .projects-slideshow {
+  
   h2 {
     color: $sharp-green;
     font-weight: 600;
@@ -1211,9 +1212,15 @@ h2 {
   }
   .slide {
     .container {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
       max-width: 1024px;
       min-height: 600px;
       white-space: nowrap;
+
+
 
       &:after {
         height: 600px;
@@ -1225,7 +1232,13 @@ h2 {
         content: '';
       }
     }
-    img { height: 100%;}
+    img {
+      height: 100%;
+
+      @include media('<tablet'){
+        min-width: 1600px;
+      }
+    }
     .caption {
       @extend %text-center;
       @include font(18,28);
@@ -1721,6 +1734,9 @@ h2 {
   @include media('<widescreen'){
     max-width: 1020px;
     padding: 30px 0;
+  }
+  @include media('<tablet'){
+    max-width: 300px;
   }
 
   .layout {
@@ -2488,7 +2504,7 @@ h2 {
     background: $p42-background;
     color: $p42-default-grey;
     @include align(top);
-    padding: 3px;
+    padding: 0 5px 0 0;
   }
 }
 .listing-image-slider {

@@ -4,10 +4,6 @@ jQuery(window).load(function(){
 
 $(document).ready(function() {
 	$(".js-example-basic-single").select2();
-	$(".js-example-basic-multiple").select2({
-		    placeholder: "Select Location",
-    		allowClear: true
-	});
 	if (screen.width < 768){
 		$('.call-agent-btn').each(function(){
 			var mobileNumber = $(this).attr('data-tel');
@@ -20,12 +16,15 @@ $(document).ready(function() {
 	}
 	$('.addPro-type:first').trigger('change');
 	$('.registration-form').find('.role-listing').hide();
-	$('.news-slideshow .slide').each(function(){
-		if($(this).find('.news-slide').length == 1){
-			$(this).find('.news-pagination').remove();
-		}
-	});
 	
+	if($('.news-slideshow .slide').length == 1){
+		$('.news-slideshow').find('.btn-holder').remove();
+	}
+	if($('.propertyImage-slider ').find('.slide').length == 1){
+		$('.propertyImage-pagination, .propertyImage-slider-btn-prev, .propertyImage-slider-btn-next').remove();
+		$('.propertyImage-slider ').find('.slide a').removeClass('lightbox');
+		$('.propertyImage-slider ').find('.slide a').removeAttr('rel href'); 
+	}
 	$(window).trigger('scroll');
 	imageAdjustment();
 });
@@ -56,10 +55,6 @@ jQuery(function(){
 	initCarousel()
 	initSlideShow();
 	initAnchors();
-
-	if(screen.width >= 768){
-		initFixedScrollBlock();
-	}
 });
 
 // slideshow init
@@ -198,10 +193,6 @@ function initCarousel() {
 function initFixedScrollBlock() {
 	jQuery('#wrapper').fixedScrollBlock({
 		slideBlock: '#header'
-	});
-	jQuery('#main').fixedScrollBlock({
-		slideBlock: '#fixed-block',
-		extraTop: 100
 	});
 }
 // smooth anchor links
