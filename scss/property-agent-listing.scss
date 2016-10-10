@@ -63,24 +63,19 @@ $media-expressions: (
       top: 0;
       left: 0;
       right: 0;
-      bottom: 0;
+      bottom: 100%;
       z-index: 999;
       padding: 0;
       border: 10px solid $p42-color;
       border-bottom: 0;
       border-top: 0;
       margin: 0;
-      transform: translateY(-105%);
-      -webkit-transform: translateY(-105%);
-      -moz-transform: translateY(-105%);
-      transition: transform 0.5s linear;
-      -webkit-transition: transform 0.5s linear;
-      -moz-transition: transform 0.5s linear;
+      transition: bottom 0.4s linear;
+      -webkit-transition: bottom 0.4s linear;
+      -moz-transition: bottom 0.4s linear;
 
       .filters-active & {
-        transform: translateY(0);
-        -webkit-transform: translateY(0);
-        -moz-transform: translateY(0);
+        bottom: 0;
       }
     }
 
@@ -361,6 +356,12 @@ $media-expressions: (
     .quick-links {
       @extend %pull-right;
       margin: 0 5px;
+
+      li {
+        .hidden-xs {
+          @include media('<desktop'){ display: none;}    
+        }
+      }
 
       @include media('<tablet'){ margin: 0;}
     }

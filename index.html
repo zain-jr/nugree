@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Largest website for property | nugree.com</title>
 	<link media="all" rel="stylesheet" href="css/main.css">
@@ -99,23 +100,25 @@
 											</label>
 										</li>
 									</ul>
-									<select class="js-example-basic-single">
-										<option>Wyoming</option>
-										<option>Alabama</option>
-										<option>Wyoming</option>
-										<option>Alabama</option>
-										<option>Wyoming</option>
-										<option>Alabama</option>
-										<option>Wyoming</option>
-										<option>Alabama</option>
-										<option>Wyoming</option>
-										<option>Alabama</option>
-										<option>Wyoming</option>
-										<option>Alabama</option>
-										<option>Wyoming</option>
-										<option>Alabama</option>
-										<option>Wyoming</option>
-									</select>
+									<span class="select-load loading">
+										<select class="js-example-basic-single">
+											<option>Wyoming</option>
+											<option>Alabama</option>
+											<option>Wyoming</option>
+											<option>Alabama</option>
+											<option>Wyoming</option>
+											<option>Alabama</option>
+											<option>Wyoming</option>
+											<option>Alabama</option>
+											<option>Wyoming</option>
+											<option>Alabama</option>
+											<option>Wyoming</option>
+											<option>Alabama</option>
+											<option>Wyoming</option>
+											<option>Alabama</option>
+											<option>Wyoming</option>
+										</select>
+									</span>
 									<button type="submit">Search<span class="icon-arrow-right"></span></button>
 								</form>
 								<div class="btn-holder">
@@ -369,7 +372,7 @@
 						</div>
 					</div>
 				</div>
-				<!--<div class="listing-page">
+				<div class="listing-page">
 					<div class="ads-slideshow">
 						<div class="mask">
 							<div class="slideset">
@@ -387,8 +390,21 @@
 							<form class="filter-form">
 								<ul class="filters-links text-upparcase">
 									<li class="active">
-										<a class="filters-links-opener">SEARCH FILTERS</a>
-										<div class="slide"></div>
+										<a class="filters-links-opener">Sort by</a>
+										<div class="slide">
+											<span class="fake-select">
+												<select>
+													<option>acha</option>
+													<option>acha</option>
+													<option>acha</option>
+													<option>acha</option>
+													<option>acha</option>
+													<option>acha</option>
+													<option>acha</option>
+													<option>acha</option>
+												</select>
+											</span>
+										</div>
 									</li>
 									<li class="active">
 										<a class="filters-links-opener">PROPERTY FOR</a>
@@ -634,8 +650,8 @@
 							</div>
 						</div>
 					</div>
-				</div>-->
-				<!--<div class="agent-listing-page">
+				</div>
+				<div class="agent-listing-page">
 					<div class="container">
 						<a class="aside-opener-filters togglerSearchButton">More Filters <b>(Land Area / Price...)</b><span class="button"><b></b></span></a>
 						<aside id="aside">
@@ -878,8 +894,8 @@
 							</div>
 						</div>
 					</div>
-				</div>-->
-				<!--<div class="addProperty-form">
+				</div>
+				<div class="addProperty-form">
 					<div class="main-form">
 						<h1>Add <span>Property</span></h1>
 						<form class="add-a-property">
@@ -1209,8 +1225,8 @@
 						</div>
 						<a href="#" class="btn-default">Got it !</a>
 					</div>
-				</div>-->
-				<!--<div class="login-page container">
+				</div>
+				<div class="login-page container">
 					<span class="global-success">You are SUCCESSFULLY Registered</span>
 					<span class="global-error">this is error</span>
 					<form class="login-form">
@@ -1252,8 +1268,8 @@
 							</form>
 						</div>
 					</div>
-				</div>-->
-				<!--<div class="registerNow container ">
+				</div>
+				<div class="registerNow container ">
 					<form class="registration-form">
 						<h1>Register <span>Now</span></h1>
 						<div class="layout">
@@ -1562,8 +1578,8 @@
 							</div>
 						</div>
 					</form>
-				</div>-->
-				<!--<div class="agent-detail-page">
+				</div>
+				<div class="agent-detail-page">
 					<div class="detail-holder container">
 						<div class="frame">
 							<div class="agent-detail-holder">
@@ -1691,8 +1707,8 @@
 							</div>
 						</div>
 					</div>
-				</div>-->
-				<!--<div class="propertyDetail-page">
+				</div>
+				<div class="propertyDetail-page">
 					<div class="container">
 						<div class="detail-holder">
 							<div class="frame">
@@ -1971,7 +1987,7 @@
 							</form>
 						</div>
 					</div>
-				</div>-->
+				</div>
 			</div>
 		</main>
 		<footer id="footer">
@@ -1982,7 +1998,7 @@
 						<form class="submit-query">
 							<div class="input-holder"><input type="text" placeholder="Name" ></div>
 							<div class="input-holder"><input type="email" placeholder="Email"></div>
-							<div class="input-holder"><input type="number" placeholder="Phone" value=""></div>
+							<div class="input-holder"><input type="tel" placeholder="Phone" value=""></div>
 							<div class="input-holder"><input type="text" placeholder="Subject"></div>
 							<textarea placeholder="Your message"></textarea>
 							<button type="submit">Send email <span class="icon-arrow-right"></span></button>
@@ -1990,7 +2006,7 @@
 					</div>
 					<div class="col">
 						<ul class="social-plugins">
-							<li><div class="fb-page" data-href="https://www.facebook.com/property42" data-tabs="timeline" data-height="384" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/property42" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/property42">property42.pk</a></blockquote></div></li>
+							<li><div class="fb-page" data-href="https://www.facebook.com/proerty92pk-354399088098995/" data-tabs="timeline" data-height="382" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/proerty92pk-354399088098995/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/proerty92pk-354399088098995/">proerty92.pk</a></blockquote></div></li>
 							<li><a class="twitter-timeline" href="https://twitter.com/92nugree">Tweets by 92nugree</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></li>
 						</ul>
 					</div>
@@ -2061,12 +2077,11 @@
 	<script src="js/jquery-main.js" type="text/javascript" defer></script>
 </body>
 <div id="fb-root"></div>
-<div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7";
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 </html>

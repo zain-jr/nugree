@@ -222,13 +222,20 @@ $media-expressions: (
       top: 0;
 
       @include media('<tablet'){
-        position: static;
+        left: auto;
+        right: 0;
         background: lighten($dim-grey, 20%);
       }
     }
     .premiumProperty {
       top: 46px;
       width: 195px;
+
+      @include media('<tablet'){
+        position: absolute;
+        width: 100px;
+        top: 0;
+      }
     }
 
     .propertyImage-mask,
@@ -289,17 +296,6 @@ $media-expressions: (
     a {
       @extend %layout;
       display: block;
-      min-height: 457px;
-      max-height: 457px;
-
-      @include media('<desktop'){
-        max-height: 335px;
-        min-height: 335px;
-      }
-      @include media('<tablet'){
-        max-height: inherit;
-        min-height: inherit;
-      }
 
       img {
         &.landscape {
@@ -308,8 +304,20 @@ $media-expressions: (
           max-height: inherit !important;
           height: 460px !important;
 
+          @include media('<widescreen'){
+            height: 390px !important;
+          }
+
+          @include media('<desktop'){
+            height: 420px !important;
+            width: auto !important;
+            margin: 0 0 0 -50%;
+          }
+
           @include media('<tablet'){
             height: 160px !important;
+            margin: 0;
+            width: 100% !important;
           }
         }
       }

@@ -1643,7 +1643,7 @@ h2 {
       position: relative;
       color: $mix-black;
       font-weight: 300;
-      padding: 35px 285px 35px 15px;
+      padding: 20px 85px 15px 20px;
       @include font(25,28);
 
       @include media('<widescreen'){
@@ -1654,7 +1654,7 @@ h2 {
         @include font(16,20);
         padding: 20px 185px 20px 15px;
       }
-      @include media('<desktop'){
+      @include media('<tablet'){
         padding: 20px;
       }
     }
@@ -1674,18 +1674,14 @@ h2 {
     }
   }
   p {
-    margin: 0;
-    @include media('<widescreen'){
-      margin: 0 0 10px;
-    }
+    margin: 0 0 10px;
+
     @include media('<desktop'){
       @extend .ellipsis;
     }
   }
   .btn-default {
-    position: absolute;
-    bottom: 0;
-    right: 100px;
+    @include align(top);
     background: $p42-default-grey;
 
     @include media('<tvscreen'){
@@ -2023,7 +2019,7 @@ h2 {
   @extend %layout;
   
   textarea,
-  input[type="text"],input[type="email"],input[type="number"],input[type="password"]{
+  input[type="text"],input[type="email"],input[type="number"],input[type="password"],input[type="tel"],input[type="number"]{
     @include squar(100%, 60px);
     display: block;
     margin: 0;
