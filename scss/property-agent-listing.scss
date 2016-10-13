@@ -314,7 +314,10 @@ $media-expressions: (
     .btn-reset{
       background: $mix-black !important;
       &:hover { background: darken($mix-black, 10) !important;}
-      }
+    }
+    .btn-default {
+      border: 0;
+    }
   }
   .publicAgent-post,
   .publicProperty-post {
