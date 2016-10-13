@@ -399,7 +399,7 @@ h2 {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 110px;
+            max-width: 118px;
             display: block;
           }
 
@@ -1834,7 +1834,7 @@ h2 {
     }
     img {
       @extend %img-res;
-      max-height: 436px;
+      max-height: 410px;
 
       @include media('<tvscreen'){
         max-height: 358px;
@@ -2941,6 +2941,8 @@ h2 {
     }
   }
   &.subtype-links {
+    @extend %text-left;
+
     li {
       width: 16.66%;
       padding: 10px 20px;
