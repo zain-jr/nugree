@@ -180,29 +180,7 @@ $media-expressions: (
       padding: 0 2px;
     }
   }
-  .filter-form {
-    @extend %layout;
-
-    .btn-search, .btn-reset {
-      width: 100% !important;
-      display: block !important;
-      border: 0 !important;
-      color: $white !important;
-      background: $sharp-green !important;
-      padding: 10px !important;
-      transition: background 0.5s ease !important;
-      -webkit-transition: background 0.5s ease !important;
-      -moz-transition: background 0.5s ease !important;
-
-      &:hover {
-        background: darken($sharp-green, 5%) !important;
-      }
-    }
-    .btn-reset{
-      background: $mix-black !important;
-      &:hover { background: darken($mix-black, 10) !important;}
-      }
-  }
+  
   .filters-links {
     @extend %listreset;
     @include font(14,17);
@@ -298,12 +276,6 @@ $media-expressions: (
         width: 100%;
         display: block;
       }
-
-      button {
-        position: static;
-        width: 100%;
-        display: block;
-      }
     }
 
     .field-holder {
@@ -320,24 +292,29 @@ $media-expressions: (
 
       @include placeholder{ color: $dark-grey;}
     }
-    button{
-      @include align(top);
-      position: absolute;
-      top: 3px;
-      right: 3px;
-      bottom: 3px;
-      @include font(12,15);
-      color: $white;
-      background: $orange;
-      border: 0;
-      padding: 5px;
-      transition: background 0.5s ease;
-      -webkit-transition: background 0.5s ease;
-      -moz-transition: background 0.5s ease;
-      -ms-transition: background 0.5s ease;
+  }
+  .filter-form {
+    @extend %layout;
 
-      &:hover { background: $green;}
+    .btn-search, .btn-reset {
+      width: 100% !important;
+      display: block !important;
+      border: 0 !important;
+      color: $white !important;
+      background: $sharp-green !important;
+      padding: 10px !important;
+      transition: background 0.5s ease !important;
+      -webkit-transition: background 0.5s ease !important;
+      -moz-transition: background 0.5s ease !important;
+
+      &:hover {
+        background: darken($sharp-green, 5%) !important;
+      }
     }
+    .btn-reset{
+      background: $mix-black !important;
+      &:hover { background: darken($mix-black, 10) !important;}
+      }
   }
   .publicAgent-post,
   .publicProperty-post {
