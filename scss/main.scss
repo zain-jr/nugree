@@ -2547,6 +2547,10 @@ h2 {
   position: relative;
   @extend %layout;
   
+  &.not-enough-slides {
+    .btn-prev, .btn-next { display: none;}
+  }
+
   .mask {
     position: relative;
     @extend %layout;
