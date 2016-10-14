@@ -323,6 +323,10 @@ $media-expressions: (
         }
         &.portrait {
           height: 600px !important;
+
+          @include media('<tablet'){
+            height: 230px !important;
+          }
         }
       }
     }

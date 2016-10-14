@@ -1228,6 +1228,11 @@ h2 {
     margin: 0;
     @extend %text-center;
     @include font(50,55);
+
+    @include media('<tablet'){
+      top: 30px;
+      @include font(40,55);
+    }
   }
   .btn-default {
     position: absolute;
