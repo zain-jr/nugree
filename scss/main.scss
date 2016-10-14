@@ -2148,7 +2148,7 @@ h2 {
     margin: 40px 0 0;
     @extend %text-center;
 
-    @include media('<tablet'){
+    @include media('<widescreen'){
       margin: 0;
     }
 
@@ -2179,7 +2179,7 @@ h2 {
       }
       @include media('<widescreen'){
         width: 100%;
-        padding: 20px 0 0;
+        padding: 50px 0 0;
         &:first-child { width: 100%;} 
       }
     }
@@ -2190,6 +2190,7 @@ h2 {
     @include align-reset(top, 21,26);
     color: $white;
     font-weight: 300;
+    padding: 15px;
 
     .rights {
       @include media('<tablet'){ display: none !important;}
