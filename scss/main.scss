@@ -2522,8 +2522,9 @@ h2 {
       }
 
       &:hover {
+        background: $sharp-green;
         color: $white;
-        background: $p42-default-grey;
+        border-color: $sharp-green;
       }
     }
   }

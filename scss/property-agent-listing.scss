@@ -542,8 +542,9 @@ $media-expressions: (
           }
 
           &:hover {
-            background: $p42-default-grey;
+            background: $sharp-green;
             color: $white;
+            border-color: $sharp-green;
           }
         }
         .quick-links {
