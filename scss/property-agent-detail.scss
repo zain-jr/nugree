@@ -298,6 +298,7 @@ $media-expressions: (
       display: block;
 
       img {
+
         &.landscape {
           width: 100% !important;
           max-width: inherit !important;
@@ -319,6 +320,9 @@ $media-expressions: (
             margin: 0;
             width: 100% !important;
           }
+        }
+        &.portrait {
+          height: 600px !important;
         }
       }
     }
@@ -754,7 +758,7 @@ $media-expressions: (
   .frame { @extend %layout;}
 
   .detail-holder {
-    min-height: 710px;
+    min-height: 873px;
     overflow: visible;
     @extend %clearfix;
   }
