@@ -34,6 +34,10 @@ $media-expressions: (
 @import 'select2-min';
 @import 'fancybox';
 
+body {
+  &.loading-page{ overflow: hidden;}
+}
+
 html, body {
   width: 100%;
   height: 100%;
@@ -599,6 +603,31 @@ h2 {
   @extend %layout;
   position: relative;
   background: #f4f4f4;
+
+  .loading-page & {
+    height: 100vh;
+    
+    &:after {
+      position: absolute;
+      top: 73px;
+      left: 0;
+      right: 0;
+      bottom: -99999px;
+      z-index: 999;
+      content: '';
+      background: $white;
+    }
+    &:before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: url('../images/loader.gif') no-repeat;
+      content: '';
+      @include squar(150px,150px);
+      z-index: 9991;
+      margin:-75px 0 0 -75px;
+    }
+  }
 }
 .page-holder {
   @extend %layout;
@@ -2977,7 +3006,7 @@ h2 {
     @extend %text-left;
 
     li {
-      width: 16.66%;
+      width: 20%;
       padding: 10px 20px;
 
       @include media('<tablet'){
