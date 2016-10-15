@@ -161,6 +161,7 @@ $media-expressions: (
         color: $dark-grey;
         padding: 0 5px 0;
         @include align(middle);
+        padding: 10px 10px 0;
       }
 
       .fake-select {
