@@ -162,7 +162,7 @@ $media-expressions: (
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 0 11px;
+    padding: 0 9px 0 10px;
     
     @include media('<desktop'){
         width: 94% !important;
@@ -195,7 +195,6 @@ $media-expressions: (
 
     li {
       width: 50%;
-      padding: 0 2px;
     }
   }
   

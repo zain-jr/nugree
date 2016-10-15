@@ -59,15 +59,11 @@ $media-expressions: (
     position: relative;
     background: $p42-background;
     @extend %layout;
+    
+    @include media('<desktop'){
+      padding: 0 250px 10px 0;
+    }
 
-    @include media('<tvscreen'){
-      padding: 0 255px 10px 0;
-    }
-    
-    @include media('<widescreen'){
-      padding: 0 230px 10px 0;
-    }
-    
     @include media('<tablet'){
       padding: 0 10px 0 !important;
     }
@@ -89,14 +85,10 @@ $media-expressions: (
     padding: 8px;
     overflow: hidden;
     
-    @include media('<tvscreen'){
+    @include media('<desktop'){
       max-width: 250px;
     }
-    
-    @include media('<widescreen'){
-      max-width: 230px;
-    }
-    
+
     @include media('<tablet'){
       max-width: inherit;
       position: static !important;
@@ -218,6 +210,11 @@ $media-expressions: (
     width: 100%;
     @extend %layout;
 
+    @include media('<tablet'){
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
     .add-to-favorite {
       top: 0;
 
@@ -312,7 +309,7 @@ $media-expressions: (
           @include media('<desktop'){
             height: 420px !important;
             width: auto !important;
-            margin: 0 0 0 -50%;
+            margin: 0 0 0 -130px;
           }
 
           @include media('<tablet'){
@@ -527,11 +524,16 @@ $media-expressions: (
     border: 1px solid rgba($darken-grey, 0.7);
     border-radius: 8px;
     padding: 10px;
+    margin: 52px 0 0;
+
+    @include media('<desktop'){
+      margin: 0;
+    }
 
     .agent-mask {
       overflow: hidden;
-      position: relative;
       margin: 0 -5px;
+      position: relative;
 
     }
     .agent-slideset {
@@ -556,7 +558,7 @@ $media-expressions: (
       }
 
       @include media('<desktop'){
-        width: 50%  !important;
+        width: 100%  !important;
         text-align: center;
         background: $white;
       }
@@ -617,12 +619,19 @@ $media-expressions: (
     }
     .btn-prev, .btn-next {
       text-decoration: none;
-      color: $green;
+      color: $white;
       position: absolute;
       top: 50%;
       left: 10px;
-      margin: -4px 0 0;
+      background: rgba($black, 0.7);
+      margin: -12px 0 0;
       display: none;
+
+      &.disabled { display: none;}
+
+      @include media('<widescreen'){
+        display: block;
+      }
 
       @include media('<desktop'){
         left: 0;
@@ -630,7 +639,7 @@ $media-expressions: (
 
       span[class^="icon-"],span[class*="icon-"]{
         font-size: 25px;
-        line-height: 0;
+        line-height: 1;
       }
     }
     .btn-next {
@@ -651,19 +660,13 @@ $media-expressions: (
     white-space: nowrap;
     @extend %layout;
 
-    @include media('<tvscreen'){
-      float: none !important;
-      margin: 0 auto 10px;
-      width: 50%;
-    }
-    @include media('<widescreen'){
-      width: 75%;
-    }
     @include media('<desktop'){
-      width: 85%;
+      @include squar(200px, 210px);
     }
+
     @include media('<tablet'){
       width: 100%;
+      float: none !important;
     }
     
     &:after {
@@ -672,6 +675,10 @@ $media-expressions: (
       margin: 0 0 0 -5px;
       @include align(middle);
       content: '';
+
+      @include media('<desktop'){
+        height: 210px;
+      }
     }
 
     img {
@@ -704,7 +711,7 @@ $media-expressions: (
     padding: 0 0 0 10px;
 
     @include media('<tablet'){
-      padding: 0;
+      padding: 10px 0 0;
     }
 
     h1 {
@@ -884,11 +891,7 @@ $media-expressions: (
       }
     }
   }
-  .detail-holder {
-    @include media('<tvscreen'){ padding: 0 230px 10px 0;}
-  }
   .info-blockAgent {
-    @include media('<tvscreen'){ max-width: 230px;}
     @include media('<tablet'){ max-width: 100%;}
 
     .small-heading,
