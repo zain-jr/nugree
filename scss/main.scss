@@ -3172,7 +3172,7 @@ h2 {
   left: 0;
   @extend %text-center;
   box-shadow: 0 0 5px rgba($black, 0.5);
-  background: $p42-default-grey;
+  background: $mix-black;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s ease, visibility 0.5s ease;

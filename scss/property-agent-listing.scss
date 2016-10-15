@@ -153,6 +153,22 @@ $media-expressions: (
       margin: 0 0 20px;
       padding: 0;
     }
+    .sort-by {
+      @extend %layout;
+      @extend %text-right;
+
+      .label {
+        color: $dark-grey;
+        padding: 0 5px 0;
+        @include align(middle);
+      }
+
+      .fake-select {
+        width: 250px;
+        float: right;
+        border: 1px solid $p42-color;
+      }
+    }
   }
   .filter-btn{
     @extend %listreset;
