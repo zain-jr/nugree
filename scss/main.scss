@@ -1552,7 +1552,7 @@ h2 {
     @extend %layout;
     position: relative;
     width: 100%;
-    @extend %text-center;
+    padding: 0 0 0 330px;
 
     &:after {
       position: absolute;
@@ -1581,7 +1581,7 @@ h2 {
     font-size: 12px;
     line-height: 14px;
     letter-spacing: 0;
-    width: 12.5% !important;
+    width: 12% !important;
     @extend %text-center;
 
     @include media('<tvscreen'){
