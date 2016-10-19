@@ -1554,6 +1554,13 @@ h2 {
     width: 100%;
     padding: 0 0 0 330px;
 
+    @include media('<desktop'){
+      padding: 0 0 0 240px;
+    }
+    @include media('<tablet'){
+      padding: 0;
+    }
+
     &:after {
       position: absolute;
       top: 0;
@@ -1581,16 +1588,15 @@ h2 {
     font-size: 12px;
     line-height: 14px;
     letter-spacing: 0;
-    width: 12% !important;
+    width: 16.66% !important;
     @extend %text-center;
 
     @include media('<tvscreen'){
-      width: 16.66% !important;
-    }
-    @include media('<desktop'){
       width: 25% !important;
     }
-
+    @include media('<desktop'){
+      width: 33.33% !important;
+    }
     @include media('<tablet'){
       width: 50% !important;
     }
@@ -2974,6 +2980,10 @@ h2 {
         padding: 10px;
         display: block;
         border: 2px solid $p42-color;
+
+        @include media('<tablet'){
+          padding: 10px 5px;
+        }
       }
     }
     input:checked ~{
@@ -3067,6 +3077,8 @@ h2 {
     
     @include media('<tablet'){
         @include font(16,19);
+        padding: 0;
+        @extend %text-center;
     }
 
     &.smaller {
