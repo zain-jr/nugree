@@ -157,9 +157,13 @@ $media-expressions: (
       @extend %layout;
       @extend %text-right;
 
+      @include media('<tablet'){
+        padding: 0 10px;
+        text-align: center;
+      }
+
       .label {
         color: $dark-grey;
-        padding: 0 5px 0;
         @include align(middle);
         padding: 10px 10px 0;
       }
@@ -168,6 +172,12 @@ $media-expressions: (
         width: 250px;
         float: right;
         border: 1px solid $p42-color;
+
+        @include media('<tablet'){
+          width: 150px;
+          float: none;
+          @include align(top);
+        }
       }
     }
   }
@@ -446,9 +456,6 @@ $media-expressions: (
         @include media('<tablet'){
           @include font(13,16);
           margin: 0 0 2px;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          overflow: hidden;
         }
 
         a {

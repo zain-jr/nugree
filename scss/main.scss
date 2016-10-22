@@ -253,6 +253,7 @@ html {
     border-radius: 0;
   }
 }
+
 .select2-container--default .select2-selection--single .select2-selection__arrow{
   height: auto;
   width: 28px;
@@ -1883,14 +1884,15 @@ h2 {
       left: 0;
       right: 0;
       color: $white;
-      @include font(40,45);
+      @include font(35,38);
       font-weight: 700;
       z-index: 5;
       @extend %text-center;
       padding: 8px;
+      background: rgba($black, 0.7);
 
       @include media('<widescreen'){
-        @include font(30,34);
+        @include font(25,30);
       }
     }
     img {
