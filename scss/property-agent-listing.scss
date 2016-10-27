@@ -62,13 +62,11 @@ $media-expressions: (
   }
 
   #aside {
-    width: 415px;
+    width: 25%;
     padding: 10px 10px 40px;
-    position: fixed;
-    top: 110px;
-    bottom: 0;
+    position: relative;
     @extend .pull-left;
-    overflow: auto;
+    overflow: hidden;
     background: $p42-background;
     box-shadow: 0 0 20px -9px rgba($black, 0.5);
 
@@ -84,6 +82,7 @@ $media-expressions: (
       left: 0;
       right: 0;
       bottom: 100%;
+      z-index: 99911;
       padding: 0;
       border: 10px solid $p42-color;
       border-bottom: 0;
@@ -139,9 +138,9 @@ $media-expressions: (
     }
   }
   #content {
-    width: 100%;
+    width: 75%;
     @extend .pull-left;
-    padding: 0 0 0 430px;
+    padding: 0 0 0 20px;
 
     @include media('<widescreen'){
       padding: 0 0 0 10px;
@@ -578,7 +577,7 @@ $media-expressions: (
             }
           }
           a {
-            padding: 11px 5px;
+            padding: 11px 30px;
 
             @include media('<tvscreen'){
               padding: 11px 7px;

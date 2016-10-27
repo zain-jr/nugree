@@ -224,17 +224,14 @@ function searchBtnFix()
 	var asideFromLeft = $('#aside').position().left;
 	$('.filter-btn').css({
 		'left':asideFromLeft+10,
-		'bottom':asideFromBottom+10,
 		'width':$('#aside').width()
 	});
 }
 function searchBtnUnFix()
 {
 	var asideFromLeft = $('#aside').position().left;
-	var asideFromBottom = $('#aside').position().bottom;
 	$('.filter-btn').css({
 		'left':0,
-		'bottom':0,
 		'width':'auto'
 	});
 }
