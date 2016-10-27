@@ -366,12 +366,12 @@ h2 {
 
     a {
       text-decoration: none;
-      padding: 25px;
+      padding: 28px 25px 27px;
       @include align(top);
       cursor: pointer;
 
       @include media('<tablet'){
-        padding: 9px 15px 11px;
+        padding: 12px 20px 13px;
       }
     }
     .searchOpener {
@@ -380,7 +380,8 @@ h2 {
 
       span {
         font-size: 20px;
-        line-height: 1;
+        line-height: 0;
+        @include align(middle);
       }
       &:hover { background: $sharp-green;}
     }
@@ -392,6 +393,10 @@ h2 {
 
     @include media('<tablet'){
       @include align-reset(top,23,23);
+    }
+
+    @include media('<tablet'){
+      @include align-reset(top,12,15);
     }
 
     li {
@@ -406,6 +411,10 @@ h2 {
             text-overflow: ellipsis;
             max-width: 118px;
             display: block;
+
+            @include media('<tablet'){
+              @include font(18,18);
+            }
           }
 
           &:hover {
@@ -431,7 +440,27 @@ h2 {
           padding: 27px 25px 28px;
         }
         @include media('<tablet'){
-          padding: 10px 15px;
+          padding: 12px 22px 13px;
+        }
+
+        &.fixed-ui-mob {
+          @include media('<tablet'){
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 50%;
+            z-index: 99;
+            text-align: center;
+            padding: 10px;
+            border-right: 1px solid $white;
+
+            span {
+              display: inline-block !important;
+              vertical-align: top;
+              margin: 0 10px;
+            }
+          }
         }
 
         &:hover {
@@ -560,12 +589,18 @@ h2 {
     border-bottom: 5px solid lighten($p42-color, 10%);
     content: '';
     margin: 0 0 0 -4px;
+
+    @include media('<tablet'){
+      left: auto;
+      right: 0;
+      margin: 0;
+    }
   }
 
   @include media('<tablet'){
     width: 150px;
-    left: 50%;
-    margin: 0 0 0 -80px;
+    left: auto;
+    right: 10px;
   }
 
   li {
@@ -3212,10 +3247,15 @@ h2 {
   background-size: 100% 100%;
 
   @include media('<tablet'){
-    @include font(11,15);
-    width: 80px;
-    height: 80px;
-    padding: 25px 0;
+    @include font(12,15);
+    width: 50%;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    border-radius: 0;
+    background: $p42-color;
+    height: auto;
+    padding: 10px 5px;
   }
 }
 .search-property {
