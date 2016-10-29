@@ -318,7 +318,7 @@ html {
 .select2-container .select2-choice > .select2-chosen {
   margin-right: 50px;
 }
-.select2-drop.select2-drop-above.select2-drop-active { border: 0;}
+.select2-dropdown-open.select2-drop-above .select2-choice, .select2-dropdown-open.select2-drop-above .select2-choices{ background: transparent;}
 h1 {
   @include font(42px,45px);
   font-weight: 700;
