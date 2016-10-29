@@ -1,7 +1,3 @@
-jQuery(window).load(function(){
-	jQuery('body').removeClass('loading-page');
-});
-
 $(document).ready(function() {
 	$(".js-example-basic-single").select2();
 	if (screen.width < 768){
