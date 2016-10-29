@@ -447,6 +447,8 @@ h2 {
             padding: 10px;
             border-right: 1px solid $white;
 
+            .fixed-ui-mob-full & { width: 100%; border: 0;}
+
             span {
               display: inline-block !important;
               vertical-align: top;
@@ -2185,7 +2187,14 @@ h2 {
   height: 1%;
   width: 100%;
 
-  h1 { color: $white;}
+  h1 {
+    color: $white;
+
+    span {
+      @include align(top);
+      font-weight: 500;
+    }
+  }
 
   .footer-holder {
     background: url('../images/img09.jpg') no-repeat;
