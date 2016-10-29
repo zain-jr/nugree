@@ -242,7 +242,7 @@ $media-expressions: (
       overflow: auto;
     }
 
-    li {
+    > li {
       display: block;
 
       &.active {
@@ -251,7 +251,7 @@ $media-expressions: (
         }
       }
 
-      a {
+      > a {
         font-weight: 700;
         text-decoration: none;
         display: block;
@@ -297,6 +297,25 @@ $media-expressions: (
       display: block;
       padding: 0 0 10px;
 
+      a {
+        padding: 0 0 0 15px;
+
+        .select2-choice{ display: none !important;}
+      }
+      .select2-container .select2-choice {
+        height: 40px;
+        line-height: 40px;
+      }
+      .select2-container .select2-choice .select2-arrow {
+        width: 27px;
+        background: $p42-color;
+        border-color: $p42-color;
+      }
+      .select2-container .select2-choice .select2-arrow b::after {
+        border: 5px solid transparent;
+        border-top: 5px solid $black;
+        margin: -3px 0 0 -5px;
+      }
       .select2-container {
         width: 100% !important;
         border: 1px solid $p42-color;

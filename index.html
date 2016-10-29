@@ -17,6 +17,7 @@
 	<link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
 	<link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700" rel="stylesheet">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
 <body class="fixed-ui-mob-full">
 	<div id="wrapper">
@@ -51,10 +52,8 @@
 						<div class="mask">
 							<div class="container main-search">
 								<form class="mainSearch-form">
-									<span class="select-load loading">
-										<select class="js-example-basic-single">
-											<option>Select City</option>
-										</select>
+									<span class="select-load">
+										<input id="selectbox" class="js-data-example-ajax" name="repo" style="width:500px;">
 									</span>
 									<ul class="typeOfBuying">
 										<li>
@@ -100,7 +99,7 @@
 											</label>
 										</li>
 									</ul>
-									<span class="select-load loading">
+									<span class="select-load">
 										<select class="js-example-basic-single">
 											<option>Wyoming</option>
 											<option>Alabama</option>
@@ -2049,24 +2048,77 @@
 			<li><a class="mail" href="mailto:&#105;&#110;&#102;&#111;&#064;&#110;&#117;&#103;&#114;&#101;&#101;&#046;&#099;&#111;&#109;">&#105;&#110;&#102;&#111;&#064;&#110;&#117;&#103;&#114;&#101;&#101;&#046;&#099;&#111;&#109;</a></li>
 		</ul>
 	</div>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" defer></script>
-	<script type="text/javascript">window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js" defer><\/script>')</script>
 	<script src="js/smooth-scroll.js" type="text/javascript" defer></script>
 	<script src="js/star-rating.js" type="text/javascript" defer></script>
-	<script src="js/select2-min.js" type="text/javascript" defer></script>
+	<script src="js/select2.full.js" type="text/javascript" defer></script>
 	<script src="js/jquery.carousel.js" type="text/javascript" defer></script>
 	<script src="js/jquery.slideshow.js" type="text/javascript" defer></script>
 	<script src="js/placeholder.js" type="text/javascript" defer></script>
 	<script src="js/fixed-block.js" type="text/javascript" defer></script>
 	<script src="js/lightBox.js" type="text/javascript" defer></script>
 	<script src="js/jquery-main.js" type="text/javascript" defer></script>
+	<script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
 </body>
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>
+
+var client = algoliasearch('1RY9U48QD0', '736d29f5a2b6e538c1b0163761fde425');
+    var index = client.initIndex('nugree_locations');
+    $(document).ready(function() {
+        $(".js-data-example-ajax").select2({
+            placeholder: 'search for locations',
+            ajax: {
+                //url: "https://api.github.com/search/repositories",
+                //url: "http://localhost/algolia_test/api.php",
+                dataType: 'json',
+                delay: 250,
+                transport: function (params) {
+                    var q = params.data.query;
+                    delete params.data.query;
+                    index.search(q, params.data).then(function (content) {
+                        params.success(content);
+                    });
+                },
+                data: function (term, page) {
+                    return {query: term, hitsPerPage: 10, page: (page - 1)};
+                },
+                processResults: function (data, params) {
+                    // parse the results into the format expected by Select2
+                    // since we are using custom formatting functions we do not need to
+                    // alter the remote JSON data, except to indicate that infinite
+                    // scrolling can be used
+                    params.page = params.page || 1;
+
+                    return {
+                        results: data.hits,
+                        pagination: {
+                            more: (params.page * 30) < data.nbHits
+                        }
+                    };
+                },
+                cache: true
+            },
+            multiple:true,
+            escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+            minimumInputLength: 1,
+            formatResult: function(location) {
+                return "<p class='select2-user-result'>" +
+                        location.location +
+                        "</p>";
+            },
+            formatSelection: function(location) {
+                return location.location;
+            }
+        });
+
+    });
+
+	(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));
+</script>
 </html>
