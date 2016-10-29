@@ -36,6 +36,18 @@ $media-expressions: (
     .registerNow-heading {
         margin: 0 0 20px;
     }
+    .select2-container-multi .select2-choices{
+        min-height: 40px;
+        border: 0;
+        max-height: inherit !important;
+        overflow: hidden;
+    }
+    .select2-container-multi .select2-choices .select2-search-choice { padding: 11px 10px 11px 25px;}
+    .select2-container, .select2-drop, .select2-search, .select2-search input{ border: 0;}
+    .select2-container-multi .select2-choices .select2-search-field input {
+        height: 40px;
+        border: 0;
+    }
 
     .registration-form {
         @extend %layout;
