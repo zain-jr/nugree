@@ -50,6 +50,17 @@ $media-expressions: (
       background: darken($sharp-green, 5%) !important;
     }
   }
+  .select2-container-multi .select2-choices {
+    border: 0;
+    min-height: 40px;
+    max-height: inherit !important;
+  }
+  .select2-container-multi .select2-choices .select2-search-field input{
+    height: 40px;
+  }
+  .select2-container-multi .select2-choices .select2-search-choice{
+    padding: 11px 10px 11px 25px;
+  }
   .btn-reset{
     background: $mix-black !important;
     &:hover { background: darken($mix-black, 10) !important;}
@@ -246,7 +257,7 @@ $media-expressions: (
       display: block;
 
       &.active {
-        a{
+        > a{
           &:after {content: "\e91a";}
         }
       }
