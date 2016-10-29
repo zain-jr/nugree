@@ -378,6 +378,10 @@ h2 {
       background: $mix-black;
       color: $white;
 
+      @include media('<tablet'){
+        display: none;
+      }
+
       span {
         font-size: 20px;
         line-height: 0;
@@ -399,22 +403,19 @@ h2 {
       @include align-reset(top,12,15);
     }
 
-    li {
+    > li {
       position: relative;
-      &:first-child {
-        a{
-          background: $dark-grey;
 
-          span {
+      &:first-child {
+        > a{
+          background: $dark-grey;
+          
+          @include media('<tablet'){
+            max-width: 120px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 118px;
-            display: block;
-
-            @include media('<tablet'){
-              @include font(18,18);
-            }
+            @include align(top);
           }
 
           &:hover {
@@ -424,11 +425,6 @@ h2 {
       }
       &:hover {
         .dropDown { display: block;}
-      }
-      .hidden {
-        @include media('<tablet'){
-          display: block !important;
-        }  
       }
       a {
         color: $white;
@@ -440,7 +436,7 @@ h2 {
           padding: 27px 25px 28px;
         }
         @include media('<tablet'){
-          padding: 12px 22px 13px;
+          padding: 14px 22px;
         }
 
         &.fixed-ui-mob {
@@ -628,6 +624,11 @@ h2 {
       border-radius: 0;
       padding: 20px !important;
       @extend %text-center;
+      background: $p42-default-grey !important;
+
+      &:hover {
+        background: $p42-color !important;
+      }
 
       @include media('<tablet'){
         padding: 10px !important;
