@@ -33,7 +33,7 @@ $media-expressions: (
   padding: 5px;
 
   @include media('<tablet'){
-    padding:0; 
+    padding:50px 0 0; 
   }
   .btn-search, .btn-reset {
     width: 100% !important;
@@ -424,7 +424,7 @@ $media-expressions: (
         max-width: 300px;
       }
       @include media('<widescreen'){
-        max-width: 250px;
+        max-width: 240px;
       }
       @include media('<tablet'){
         max-width: 120px;
@@ -544,7 +544,7 @@ $media-expressions: (
         }
 
         @include media('<widescreen'){
-          left: 263px;
+          left: 245px;
         }
         @include media('<tablet'){
           position: static;
@@ -756,9 +756,12 @@ $media-expressions: (
   background: $green;
   font-weight: 600;
   padding: 10px;
-  border-radius: 4px;
+  top: 45px;
+  left: 0;
+  right: 0;
+  z-index: 999;
   cursor: pointer;
-  position: relative;
+  position: fixed;
   margin: 0 0 10px;
   font-weight: 600;
 

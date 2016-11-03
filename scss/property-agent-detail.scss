@@ -473,6 +473,7 @@ $media-expressions: (
     @include align-reset(top, 14,17);
     color: $p42-default-grey;
     margin: 0 -1px;
+    font-weight: 700;
 
     li {
       width: 33.33%;
