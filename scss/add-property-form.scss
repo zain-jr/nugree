@@ -105,6 +105,45 @@ $media-expressions: (
             width: 100%;
         }
     }
+    .col-holder {
+        @extend %layout;
+
+        .col {
+            width: 50%;
+            @extend %pull-left;
+
+            @include media('<desktop'){
+                width: 100%;
+            }
+            ul {
+                @extend %listreset;
+                padding: 0 20px;
+            }
+            .layout {
+                margin: 0;
+                padding: 0;
+            }
+
+            .layout-holder {
+                width: 100%;
+                padding: 0;
+                margin:  0  0 15px;
+            }
+        }
+        .input-holder {
+            width: 75%;
+            @include media('<desktop'){
+                width: 100%;
+            }
+        }
+        .calculatedPrice {
+            display: block !important;
+
+            @include media('<desktop'){
+                text-align: left;
+            }
+        }
+    }
     .image-uploading-area{
 		@extend %listreset;
 		@include align-reset(top,14,17);

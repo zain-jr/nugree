@@ -3108,7 +3108,8 @@ h2 {
     color: $dark-grey;
     @include font(20,24);
     font-weight: 600;
-    padding: 0 0 0 110px;
+    padding: 0 0 0 150px;
+    @extend %text-left;
     overflow: hidden;
     
     @include media('<tablet'){
