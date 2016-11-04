@@ -118,6 +118,7 @@ $media-expressions: (
             ul {
                 @extend %listreset;
                 padding: 0 20px;
+                @extend %text-center;
             }
             .layout {
                 margin: 0;

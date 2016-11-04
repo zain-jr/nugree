@@ -39,6 +39,7 @@ html, body {
   height: 100%;
 }
 html {
+  background: #f4f4f4;
 
   &.filters-active,
   &.nav-active {
@@ -668,7 +669,6 @@ h2 {
 #main {
   @extend %layout;
   position: relative;
-  background: #f4f4f4;
 }
 .page-holder {
   @extend %layout;
