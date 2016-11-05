@@ -2674,6 +2674,7 @@ h2 {
   .slide {
     width: 100%;
     float: left;
+    @extend %text-center;
   }
   a { display: block;}
   img { @extend %img-res;}
