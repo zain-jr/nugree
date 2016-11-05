@@ -37,9 +37,10 @@ $media-expressions: (
 html, body {
   width: 100%;
   height: 100%;
+  background: #f4f4f4;
 }
 html {
-  background: #f4f4f4;
+  height: 100%;
 
   &.filters-active,
   &.nav-active {
