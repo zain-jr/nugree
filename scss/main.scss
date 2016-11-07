@@ -244,9 +244,6 @@ html {
 .select2-container.select2-container-multi.js-data-example-ajax{
   width: 100% !important;
 }
-.select2-drop-mask {
-  z-index: 999112;
-}
 .select2-container-multi .select2-choices{
   min-height: 47px;
   max-height: 60px !important;
@@ -433,6 +430,10 @@ h2 {
 
     @include media('<tablet'){
       @include align-reset(top,12,15);
+
+      .filters-active & {
+        display: none;
+      }
     }
 
     > li {
@@ -3260,6 +3261,10 @@ h2 {
     background: $p42-color;
     height: auto;
     padding: 10px 5px;
+
+    .filters-active & {
+      display: none;
+    }
   }
 }
 .search-property {
