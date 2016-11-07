@@ -33,7 +33,7 @@
 				</form>
 				<ul class="customLinks">
 					<li>
-						<a href="#">Login / Register</span></a>
+						<a href="#">Login / Register</a>
 						<ul class="dropDown">
 							<li><a href="#">my profile</a></li>
 							<li><a href="#">my listing</a></li>
@@ -291,7 +291,7 @@
 					</div>
 					<a href="#wrapper" class="search-property back-to-top"><span class="icon-search"></span> Search <br>property</a>
 				</div>-->
-				<!--<div class="listing-page">
+				<div class="listing-page">
 					<div class="ads-slideshow">
 						<div class="mask">
 							<div class="slideset">
@@ -384,12 +384,7 @@
 										<div class="slide">
 											<ul class="filterChecks">
 												<li>
-													<span class="select-load">
-														<input id="selectbox" class="js-data-example-ajax" name="repo">
-													</span>
-												</li>
-												<li>
-													<input id="selectbox" class="js-data-example-ajax" name="repo">
+													<input id="selectbox" class="ajax-locations-select" name="repo">
 												</li>
 											</ul>
 										</div>
@@ -545,7 +540,7 @@
 							</div>
 						</div>
 					</div>
-				</div>-->
+				</div>
 				<!--<div class="agent-listing-page">
 					<div class="container">
 						<a class="aside-opener-filters togglerSearchButton">More Filters <b>(Land Area / Price...)</b><span class="button"><b></b></span></a>
@@ -1674,7 +1669,7 @@
 var client = algoliasearch('1RY9U48QD0', '736d29f5a2b6e538c1b0163761fde425');
     var index = client.initIndex('nugree_locations');
     $(document).ready(function() {
-        $(".js-data-example-ajax").select2({
+        $(".ajax-locations-select").select2({
             placeholder: 'search for locations',
             ajax: {
                 //url: "https://api.github.com/search/repositories",
